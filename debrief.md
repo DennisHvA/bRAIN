@@ -23,8 +23,7 @@ Ze voeren geen analyse uit zonder handelingsperspectief en bieden zowel creatiev
 
 ## Opdrachtomschrijving​
 
-
-Een tool ontwikkelen op het moment dat mensen een regenton hebben, zodat ze een idee krijgen wanneer ze die moeten legen voordat er weer een bui komt. Een systeem waar water goed wordt vastgehouden. Regenton moet leeg zijn voordat er weer een nieuwe regenbui komt, zodat het water zo veel mogelijk vastgehouden wordt voordat het weg gevoerd wordt.
+Ontwerp en ontwikkel een web applicatie die inzicht geeft in de hoeveel water die er op een bepaald moment van de dag in de regenton zit. Daarnaast moet er een melding gegeven worden dat de regenton geleegd moet worden op het moment dat er veel regen voorspelt is. De data die hier aan gekoppeld zit is dus: hoeveelheid regen (huidig en toekomstig), dakoppervlak, aantal regenpijpen en geschat volume regenton (e.g. 250L water). Je wil in de app dus zien hoe vol de regenton zit en hoeveel water je al verzamelt hebt. Er moet een reset knop opzitten die de regenton weer virtueel leegt en weer opnieuw kan vollopen aan de hand van de hoeveelheid regen.
 
 ## Aanleiding​
 
@@ -32,11 +31,11 @@ Weersextremen in Nederland nemen steeds verder toe. Enerzijds komen periode van 
 
 ## Doelstelling​
 
-Een prototype waarmee duidelijk het idee overgbracht kan worden
+Er moet een prototype gemaakt worden waarbij het idee duidelijk kan worden overgebracht
 
 ## Oplevering​
 
-Een prototype
+Een deelbare link naar het prototype die Spatwater en kan gebruiken om het idee te pitchen.
 
 ## Randvoorwaarden​
 
