@@ -15,7 +15,7 @@ j.schoenmakers@spatwater.nl
 
 ### Achtergrondinformatie​
 
-
+Over Spatwater & bRAIN
 
 ### Opdrachtomschrijving​
 
@@ -23,26 +23,33 @@ Een tool ontwikkelen op het moment dat mensen een regenton hebben, zodat ze een 
 
 ### Aanleiding​
 
-Neerslag neemt toe, het regent steeds harder. Ook is er steeds meer droogte, waardoor je hier goed op moet kunnen aanpassen.
+Weerextremen nemen toe, er is meer harde regen en aan de andere kant ook steeds meer droogte. Hierop moet 
 
 ### Doelstelling​
 
+Een prototype waarmee duidelijk het idee overgbracht kan worden
+
 ### Oplevering​
+
+Een prototype
 
 ### Randvoorwaarden​
 
--    Weer kunnen meenemen in de applicatie, aan de hand van KNMI
--    Aan de hand van deze data zien of het weer gaat regenen, waarschuwen dat de     regenton opengezet wordt.
--    Gebruiksvriendelijkheid
--    Bewoners meekrijgen in dit verhaal
--    Makkelijk te gebruiken
--    Visueel aantrekkelijk
--    Goed prototype kunnen presenteren
--    Hoofddoel: bewoners omverblazen met idee
--    App moet optijd een seintje geven wanneer de ton vol raakt
+- Een tool voor bewoners waarmee zij hun dakoppervlak kunnen berekenen
+- Er moet te zien zijn wanneer het heeft geregend en wanneer het weer zal gaan regenen
+- Er moet te zien zijn hoevol de regenton is, een melding gestuurd worden als hij vol is en als hij geleegd moet worden
+- Het moet visueel aantrekkelijk en gebruiksvriendelijk zijn
+- Aan de hand van het prototype moet het idee goed naar boven komen
+
+Extra:
+
+- Op basis van locatie het weer & bereking van het dakoppervlak
+- Het deel voor de gemeente
 
 ### Gebruikers van het eindresultaten​
 
-
+Het prototype wat wij maken gaat naar bRAIN. Zij gaan het protoype pitchen bij de gemeente Amsterdam, waarbij de bedoeling dat de gemeente dit idee kan gebruiken. Zowel de bewoners als de gemeente zullen de app gebruiken. 
 
 ### Relatie met andere projecten
+
+De app Perceelwijzer die beschikbaar is op android. Met deze app kan je door middel van de locatie erachter komen hoe groot je dakoppervlak is. In een ideale wereld zou die api ook hier gebruikt kunnen worden voor het dakoppervlak van de bewoners. 
