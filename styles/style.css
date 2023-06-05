@@ -1,0 +1,80 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style-type: none;
+}
+
+:root {
+    --hue-color: 190;
+
+    --color-blue-dark: #384b61;
+    --color-blue-light: #7faec5;
+    --color-white: white;
+    --color-grey: #fafafa;
+    --color-green: #4ecd5d;
+
+    --color-title-dark: var(--color-blue-dark);
+    --color-title-light: var(--color-blue-light);
+    --color-body: hsl(var(--hue-color), 24%, 35%);
+
+    --color-hover: hsl(var(--hue-color), 64%, 15%);
+
+    --color-background: white;
+
+    --font-title: 'Raleway', sans-serif;
+    --font-body: 'Open Sans', sans-serif;
+
+    --font-size-1: 2.5rem;
+    --font-size-1: 1.5rem;
+    --font-size-body: 1rem;
+
+    --font-weight-medium: 500;
+    --font-weight-semi-bold: 600;
+
+    --shadow: 0 4px 6px rgba(174, 190, 205, .3)
+}
+
+body {
+    background-color: white;
+    font-family: var(--font-body);
+    color: var(--color-body);
+
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+    width: 20em;
+    border: none;
+    box-shadow: var(--shadow);
+    background-color: var(--color-grey);
+}
+
+a, input[type="submit"], button {
+    text-decoration: none;
+    background-color: var(--color-green);
+    color: var(--color-grey);
+    padding: .7em 1em;
+    font-weight: var(--font-weight-semi-bold);
+    transition: .3s;
+    border-radius: .5em;
+    border: none;
+}
+
+a:hover, input[type="submit"]:hover, button:hover {
+    background-color: var(--color-hover);
+}
+
+input[type="text"], input[type="number"] {
+    padding: .5em;
+}
+
+input[type="text"]:focus {
+    border: 3px solid var(--color-blue-dark);
+}
