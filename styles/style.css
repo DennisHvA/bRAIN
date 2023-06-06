@@ -39,12 +39,6 @@ body {
     background-color: white;
     font-family: var(--font-body);
     color: var(--color-body);
-
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
 }
 
 fieldset {
@@ -62,13 +56,13 @@ a, input[type="submit"], button {
     color: var(--color-grey);
     padding: .7em 1em;
     font-weight: var(--font-weight-semi-bold);
-    transition: .3s;
     border-radius: .5em;
     border: none;
 }
 
 a:hover, input[type="submit"]:hover, button:hover {
     background-color: var(--color-hover);
+    transition: .3s;
 }
 
 input[type="text"], input[type="number"] {
