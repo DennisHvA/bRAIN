@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,7 +9,79 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <a href="dak.html">Start</a>
+    <main class="onboard">
+        <section id="step-0" class="step active">
+            <h1>bRAIN</h1>
+            <p>Wij helpen je met het opvangen van regenwater.</p>
+            <button>Laten we beginnen</button>
+        </section>
+
+        <form id="step-1" class="step">
+            <h2>Hoe ziet je dak eruit?</h2>
+            <label for="daktype">
+                <input type="radio" name="daktype" checked>
+                Plat
+            </label>
+            <label for="daktype">
+                <input type="radio" name="daktype">
+                Schuin
+            </label>
+            <label for="daktype">
+                <input type="radio" name="daktype">
+                Punt
+            </label>
+            <button type="button">Next</button>
+        </form>
+          
+        <form id="step-2" class="step">
+            <h2>Wat is het oppervlakte van je dak?</h2>
+            <label for="daktype">
+                <input type="text" name="daktype" placeholder="aantal vierkantemeter (m2)">
+            </label>
+            <button type="button">Back</button>
+            <button type="button">Next</button>
+        </form>
+          
+        <form id="step-3" class="step">
+            <h2>Hoeveel regenpijpen heb je?</h2>
+            <label for="daktype">
+                <input type="number" name="daktype" placeholder="aantal regenpijpen">
+            </label>
+            <button type="button">Back</button>
+            <button type="button">Next</button>
+        </form>
+
+        <form id="step-4" class="step">
+            <h2>Hoeveel liter water kan je er in je regenton?</h2>
+            <label for="daktype">
+                <input type="text" name="daktype">
+                (L) Liter water
+            </label>
+            <button type="button">Back</button>
+            <button type="button">Next</button>
+        </form>
+
+        <form id="step-5" class="step" action="/home.html">
+            <h2>Wat is je adres? Deze hebben wij nodig om te bepalen hoeveel regen er valt.</h2>
+            <label for="postcode">Postcode:
+                <input type="text" name="postcode">
+            </label>
+            <label for="huisnummer">Huisnummer:
+                <input type="text" name="huisnummer">           
+            </label>
+            <button type="button">Back</button>
+            <button type="submit">Next</button>
+        </form>
+        
+        <section class="progress-active">
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+            <div class="circle"></div>
+        </section>
+
+    </main>
     <script src="script.js"></script>
 </body>
 </html>

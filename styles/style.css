@@ -26,7 +26,7 @@
     --font-body: 'Open Sans', sans-serif;
 
     --font-size-1: 2.5rem;
-    --font-size-1: 1.5rem;
+    --font-size-2: 1.5rem;
     --font-size-body: 1rem;
 
     --font-weight-medium: 500;
@@ -42,9 +42,9 @@ body {
 }
 
 fieldset {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    width: 20em;
     border: none;
     box-shadow: var(--shadow);
     background-color: var(--color-grey);
@@ -58,6 +58,7 @@ a, input[type="submit"], button {
     font-weight: var(--font-weight-semi-bold);
     border-radius: .5em;
     border: none;
+    font-size: var(--font-size-body);
 }
 
 a:hover, input[type="submit"]:hover, button:hover {
@@ -71,4 +72,103 @@ input[type="text"], input[type="number"] {
 
 input[type="text"]:focus {
     border: 3px solid var(--color-blue-dark);
+}
+
+/*  */
+
+main {
+    max-width: 25em;
+    margin: 0 auto;
+    height: 100vh;
+}
+
+/* onboard */
+
+.onboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.onboard > section {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.onboard > section > h1 {
+    font-size: var(--font-size-1);
+}
+
+.onboard > .progress {
+    display: none;
+    justify-content: center;
+    gap: 1em;
+    position: absolute;
+    bottom: 7.5em;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.onboard > .progress div {
+    background-color: var(--color-white);
+    border: 2px solid var(--color-green);
+    width: 1.5em;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+}
+
+.onboard .step {
+    display: none;
+}
+  
+.onboard .step.active {
+    display: flex;
+    flex-direction: column;
+}
+
+.onboard main > form > button {
+    position: absolute;
+    bottom: 1.5em;
+}
+
+.onboard main > form > button:first-of-type {
+    left: 1.5em;
+}
+
+.onboard main > form > button:last-of-type {
+    right: 1.5em;
+}
+
+/* gegevens */
+
+.gegevens {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5em;
+}
+
+.gegevens > section {
+    box-shadow: var(--shadow);
+    background-color: var(--color-grey);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+}
+
+.gegevens > section > div {
+    width: 0; 
+    height: 0; 
+    border-top: 1em solid transparent;
+    border-bottom: 1em solid transparent;
+    
+    border-left: 1em solid var(--color-green);
+}
+
+.gegevens > section > section:first-of-type > p:first-of-type {
+    font-weight: var(--font-weight-semi-bold);
 }
