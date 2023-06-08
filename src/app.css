@@ -92,7 +92,8 @@ main {
 }
 
 .onboard > section {
-    display: none;
+    display: flex;
+    text-align: center;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -105,6 +106,7 @@ main {
 
 .onboard > .progress {
     display: none;
+    flex-direction: row;
     justify-content: center;
     gap: 1em;
     position: absolute;
@@ -113,7 +115,7 @@ main {
     transform: translateX(-50%);
 }
 
-.onboard > .progress div {
+.progress div {
     background-color: var(--color-white);
     border: 2px solid var(--color-green);
     width: 1.5em;
@@ -126,20 +128,27 @@ main {
 }
   
 .onboard .step.active {
-    display: flex;
-    flex-direction: column;
+    display: block;
 }
 
-.onboard main > form > button {
+.onboard section:first-of-type.hide {
+    display: none;
+}
+
+.onboard .progress.show {
+    display: flex;
+}
+
+.onboard > form > button {
     position: absolute;
     bottom: 1.5em;
 }
 
-.onboard main > form > button:first-of-type {
+.onboard > form > button:first-of-type {
     left: 1.5em;
 }
 
-.onboard main > form > button:last-of-type {
+.onboard > form > button:last-of-type {
     right: 1.5em;
 }
 
@@ -161,12 +170,17 @@ main {
 }
 
 .gegevens > section > div {
-    width: 0; 
+    /* width: 0; 
     height: 0; 
     border-top: 1em solid transparent;
     border-bottom: 1em solid transparent;
     
-    border-left: 1em solid var(--color-green);
+    border-left: 1em solid var(--color-green); */
+    width: 1em;
+    aspect-ratio: 1/1;
+    border-top: var(--color-green) solid 3px;
+    border-right: var(--color-green) solid 3px;
+    rotate: 45deg;
 }
 
 .gegevens > section > section:first-of-type > p:first-of-type {
