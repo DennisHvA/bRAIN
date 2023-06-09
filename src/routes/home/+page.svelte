@@ -1,26 +1,26 @@
 <main class="landing">
     <header>
-        <section>
-            <h1>bRAIN</h1>
+            <section>
+                <h1>bRAIN</h1>
+    
+                <button class="dropdown-btn"><i class="fa-solid fa-bars"></i></button>
+            </section>
+            
 
-            <button class="dropdown-btn"><i class="fa-solid fa-bars"></i></button>
-        </section>
-        
-
-        <nav>
-            <ul>
-                <li>
-                    <a href="#">Profiel</a>
-                </li>
-                <li>
-                    <a href="#">Instellingen</a>
-                </li>
-                <li>
-                    <a href="#">Informatie</a>
-                </li>
-            </ul>
-        </nav>
-    </header>
+            <nav>
+                <ul>
+                    <li>
+                        <a href="#">Profiel</a>
+                    </li>
+                    <li>
+                        <a href="#">Instellingen</a>
+                    </li>
+                    <li>
+                        <a href="#">Informatie</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
 
    <section class="info">
 

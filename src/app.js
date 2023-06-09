@@ -1,3 +1,13 @@
+const headerNav = document.querySelector("header nav");
+const navButton = document.querySelector(".dropdown-btn");
+const mainElement = document.querySelector("main");
+
+if (mainElement.classList.contains("landing")) {
+  navButton.addEventListener("click", function() {
+    headerNav.classList.toggle('openNav')
+  })
+}
+
 let currentStep = 1;
 const circles = document.getElementsByClassName('circle');
 const steps = document.getElementsByClassName('step');
