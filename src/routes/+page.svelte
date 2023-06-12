@@ -51,7 +51,7 @@
 		<button type="button">Next</button>
 	</form>
 
-	<form id="step-5" class="step" action="/home">
+	<form id="step-5" class="step" action="/gegevens">
 		<h2>Wat is je adres? Deze hebben wij nodig om te bepalen hoeveel regen er valt.</h2>
 		<label for="postcode"
 			>Postcode:
