@@ -2,7 +2,6 @@
     export let today = new Date();
 
     const getData = async () => {
-        const today = new Date();
         const startDate = new Date();
         const endDate = new Date();
 
