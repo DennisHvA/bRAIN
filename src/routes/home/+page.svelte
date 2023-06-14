@@ -1,4 +1,7 @@
 <script lang="ts">
+    import Nav from '$lib/components/Nav.svelte'
+    import Header from '$lib/components/Header.svelte'
+
     export let today = new Date();
 
     const getData = async () => {
@@ -21,13 +24,9 @@
     }
 </script>
 
-<main class="landing">
-    <header>
-        <section>
-            <h1>bRAIN</h1>
-        </section>   
-    </header>
+<Header />
 
+<main class="landing">
     <section class="timeline">
         {#await getData()}
             {:then data} 
@@ -35,89 +34,66 @@
                 {today.getDate() - 3}
                 <br>
                 {#if data.daily.precipitation_sum[0] > 0}
-                    <img src="wolkje.png">
+                    <img src="images/druppels.png">
                 {/if}
             </p>
             <p>
                 {today.getDate() - 2}
                 <br>
                 {#if data.daily.precipitation_sum[1] > 0}
-                    <img src="wolkje.png">
+                    <img src="images/druppels.png">
                 {/if}
             </p>
             <p>
                 {today.getDate() - 1}
                 <br>
                 {#if data.daily.precipitation_sum[2] > 0}
-                    <img src="wolkje.png">
+                    <img src="images/druppels.png">
                 {/if}
             </p>
             <p class="current">
                 {today.getDate()}
                 <br>
                 {#if data.daily.precipitation_sum[3] > 0}
-                    <img src="wolkje.png">
+                    <img src="images/druppels.png">
                 {/if}
             </p>
             <p>
                 {today.getDate() + 1}
                 <br>
                 {#if data.daily.precipitation_sum[4] > 0}
-                    <img src="wolkje.png">
+                    <img src="images/druppels.png">
                 {/if}
             </p>
             <p>
                 {today.getDate() + 2}
                 <br>
                 {#if data.daily.precipitation_sum[5] > 0}
-                    <img src="wolkje.png">
+                    <img src="images/druppels.png">
                 {/if}
             </p>
             <p>
                 {today.getDate() + 3}
                 <br>
                 {#if data.daily.precipitation_sum[6] > 0}
-                    <img src="wolkje.png">
+                    <img src="images/druppels.png">
                 {/if}
             </p>
         {/await}
     </section>
 
    <section class="info">
-        <section class="tiles">
-            <div class="full-date">
-                <p class="info-text">Verwachte vol datum</p>
-                <p class="data-info">15 Juli</p>
-            </div>
-            <div class="rain-date">
-                <p class="info-text">Volgende regenval</p>
-                <p class="data-info">28 Juni</p>
-            </div>
-        </section>
-
-
         <h2>Spatwater's Regenton</h2>
+        <p>125/250L</p>
    </section>
 
    <section class="barrel">
-    
+        <img src="images/regenton.png">
    </section>
 
 
    <button class="leeg">Leeg</button>
 
-    <nav>
-        <ul>
-            <li>
-                <a href="#">Home</a>
-            </li>
-            <li>
-                <a href="#">Totaal opgevangen</a>
-            </li>
-            <li>
-                <a href="#">Profiel</a>
-            </li>
-        </ul>
-    </nav>
+    <Nav />
 
 </main>

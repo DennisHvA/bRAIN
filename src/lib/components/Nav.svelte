@@ -1,0 +1,52 @@
+<script>
+    
+</script>
+
+<nav>
+    <ul>
+        <li>
+            <a href="#">
+                <img src="icons/home.svg">
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="icons/stats.svg">
+            </a>
+        </li>
+        <li>
+            <a href="#">
+                <img src="icons/profile.svg">
+            </a>
+        </li>
+    </ul>
+</nav>
+
+<style>
+    nav {
+        background-color: var(--color-grey);
+        box-shadow: 0 -4px 6px rgba(174, 190, 205, .3);;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        padding: 0 1em;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    nav ul li a {
+        width: 100%;
+        display: block;
+        border-radius: 0;
+        background-color: var(--color-grey);
+        color: var(--color-blue-dark);
+    }
+
+    nav ul li img {
+        width: 2em;
+        aspect-ratio: 1/1;
+    }
+</style>
