@@ -28,18 +28,5 @@
 
    <button class="leeg">Leeg</button>
 
-    <nav>
-        <ul>
-            <li>
-                <a href="#">Home</a>
-            </li>
-            <li>
-                <a href="#">Totaal opgevangen</a>
-            </li>
-            <li>
-                <a href="#">Profiel</a>
-            </li>
-        </ul>
-    </nav>
 
 </main>

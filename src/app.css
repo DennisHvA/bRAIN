@@ -45,9 +45,8 @@ fieldset {
     width: 100%;
     display: flex;
     flex-direction: column;
+    gap: 1em;
     border: none;
-    box-shadow: var(--shadow);
-    background-color: var(--color-grey);
 }
 
 a, input[type="submit"], button {
@@ -79,118 +78,12 @@ input[type="text"]:focus {
 main {
     max-width: 25em;
     margin: 0 auto;
-    height: 100vh;
+    /* height: 100%; */
 }
 
 /* onboard */
 
-.onboard {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-}
-
-.onboard > section {
-    display: flex;
-    text-align: center;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 1em;
-}
-
-.onboard > section > h1 {
-    font-size: var(--font-size-1);
-}
-
-.onboard > .progress {
-    display: none;
-    flex-direction: row;
-    justify-content: center;
-    gap: 1em;
-    position: absolute;
-    bottom: 7.5em;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.progress div {
-    background-color: var(--color-white);
-    border: 2px solid var(--color-green);
-    width: 1.5em;
-    aspect-ratio: 1/1;
-    border-radius: 50%;
-}
-
-.onboard .step {
-    display: none;
-}
-  
-.onboard .step.active {
-    display: block;
-}
-
-.onboard section:first-of-type.hide {
-    display: none;
-}
-
-.onboard .progress.show {
-    display: flex;
-}
-
-.onboard > form > button,
-.onboard #step-0 button  {
-    position: absolute;
-    bottom: 1.5em;
-}
-
-.onboard #step-0 button {
-    transform: translateX(-50%);
-}
-
-.onboard > form > button:first-of-type {
-    left: 1.5em;
-}
-
-.onboard > form > button:last-of-type {
-    right: 1.5em;
-}
-
 /* gegevens */
-
-.gegevens {
-    display: flex;
-    flex-direction: column;
-    gap: 1.5em;
-}
-
-.gegevens > section {
-    box-shadow: var(--shadow);
-    background-color: var(--color-grey);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1em;
-}
-
-.gegevens > section > div {
-    /* width: 0; 
-    height: 0; 
-    border-top: 1em solid transparent;
-    border-bottom: 1em solid transparent;
-    
-    border-left: 1em solid var(--color-green); */
-    width: 1em;
-    aspect-ratio: 1/1;
-    border-top: var(--color-green) solid 3px;
-    border-right: var(--color-green) solid 3px;
-    rotate: 45deg;
-}
-
-.gegevens > section > section:first-of-type > p:first-of-type {
-    font-weight: var(--font-weight-semi-bold);
-}
 
 nav {
     background-color: var(--color-grey);

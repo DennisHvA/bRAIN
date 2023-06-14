@@ -1,13 +1,3 @@
-const headerNav = document.querySelector("header nav");
-const navButton = document.querySelector(".dropdown-btn");
-const mainElement = document.querySelector("main");
-
-if (mainElement.classList.contains("landing")) {
-  navButton.addEventListener("click", function() {
-    headerNav.classList.toggle('openNav')
-  })
-}
-
 let currentStep = 1;
 const circles = document.getElementsByClassName('circle');
 const steps = document.getElementsByClassName('step');
@@ -22,7 +12,7 @@ function updateProgressIndicator() {
   }
 }
 
-updateProgressIndicator()
+// updateProgressIndicator()
 
 function nextStep() {
   if (currentStep < steps.length && document.getElementById('step-' + currentStep).checkValidity()) {
@@ -42,7 +32,6 @@ function previousStep() {
   }
 }
 
-document.getElementById('step-0').querySelector('button').addEventListener('click', nextStep);
 document.getElementById('step-1').querySelector('button').addEventListener('click', nextStep);
 document.getElementById('step-2').querySelector('button:last-of-type').addEventListener('click', nextStep);
 document.getElementById('step-2').querySelector('button:first-of-type').addEventListener('click', previousStep);
