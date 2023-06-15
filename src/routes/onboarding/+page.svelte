@@ -66,7 +66,8 @@
 		</fieldset>
 
 		<fieldset id="step-5" class="step">
-			<legend>Wat is je adres? Deze hebben wij nodig om te bepalen hoeveel regen er valt.</legend>
+			<legend>Wat is je adres?</legend>
+			<p>Deze hebben wij nodig om te bepalen hoeveel regen er valt</p>
 			<label for="zip"
 				>Postcode:
 				<input type="text" name="zip" id="zip"/>
@@ -94,9 +95,20 @@
 
 <style>
 
+fieldset {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+	align-items: center;
+    gap: 1em;
+    border: none;
+}
+
 legend {
 	font-size: var(--font-size-2);
 	font-weight: var(--font-weight-semi-bold);
+	margin-bottom: 1em;
+	text-align: center;
 }
 
 fieldset > img {
@@ -140,9 +152,14 @@ fieldset:first-of-type label img {
     justify-content: center;
 }
 
+fieldset:last-of-type p {
+	font-size: 1.2em;
+}
+
 fieldset section:last-of-type {
     position: absolute;
     bottom: 2em;
+	gap: 8em;
     display: flex;
     justify-content: space-between;
 }
