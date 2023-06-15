@@ -5,18 +5,18 @@
 <nav>
     <ul>
         <li>
-            <a href="#">
-                <img src="icons/home.svg">
+            <a href="/home">
+                <img src="icons/home.svg" alt="">
             </a>
         </li>
         <li>
-            <a href="#">
-                <img src="icons/stats.svg">
+            <a href="/stats">
+                <img src="icons/stats.svg" alt="">
             </a>
         </li>
         <li>
-            <a href="#">
-                <img src="icons/profile.svg">
+            <a href="/profile">
+                <img src="icons/profile.svg" alt="">
             </a>
         </li>
     </ul>

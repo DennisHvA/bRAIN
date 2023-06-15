@@ -1,22 +1,22 @@
 <script>
     import Header from '$lib/components/Header.svelte'
     import Gegevens from '$lib/components/Gegevens.svelte'
+    import Nav from '$lib/components/Nav.svelte'
+
 </script>
 
 <Header />
 
-<main class="check">
+<main class="profile">
 
-    <Gegevens />
+    <Gegevens/>
+
+    <Nav />
     
-    <a href="/home">Opslaan</a>
-
 </main>
 
 <style>
-    .check {
-        display: flex;
-        flex-direction: column;
-        gap: 2em;
+    .profile {
+        padding: 0;
     }
 </style>
