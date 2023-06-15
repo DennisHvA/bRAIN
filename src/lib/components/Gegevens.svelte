@@ -2,36 +2,37 @@
     <h2>Gegevens</h2>
     <section>
         <section>
-            <p>Soort data</p>
-            <p>Je data</p>
+            <p>Daktype</p>
+            <p id="daktype">Je data</p>
         </section>
         <div></div>
     </section>
     <section>
         <section>
-            <p>Soort data</p>
-            <p>Je data</p>
+            <p>Aantal vierkante meter</p>
+            <p id="size">Je data</p>
         </section>
         <div></div>
     </section>
     <section>
         <section>
-            <p>Soort data</p>
-            <p>Je data</p>
+            <p>Aantal regenpijpen</p>
+            <p id="pipes">Je data</p>
         </section>
         <div></div>
     </section>
     <section>
         <section>
-            <p>Soort data</p>
-            <p>Je data</p>
+            <p>Aantal liter in de regenton</p>
+            <p id="liter">Je data</p>
         </section>
         <div></div>
     </section>
     <section>
         <section>
-            <p>Soort data</p>
-            <p>Je data</p>
+            <p>Postcode en huisnummer</p>
+            <p id="zip">Je data</p>
+            <p id="huisnummer"></p>
         </section>
         <div></div>
     </section>
