@@ -78,12 +78,8 @@ input[type="text"]:focus {
 main {
     max-width: 25em;
     margin: 0 auto;
-    /* height: 100%; */
+    padding: 0.5em 1em;
 }
-
-/* onboard */
-
-/* gegevens */
 
 nav {
     background-color: var(--color-grey);
@@ -119,13 +115,6 @@ nav ul li a {
 .landing h2 {
     color: var(--color-blue-light);
     margin-bottom: 1em;
-}
-
-header > section {
-    padding: 1em;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .info {

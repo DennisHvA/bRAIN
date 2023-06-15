@@ -1,25 +1,19 @@
-<header>
-	<section>
-		<h1>bRAIN</h1>
-	</section>   
-</header>
-
-<main class="onboard">
+ <main class="onboard">
 
 	<form action="/gegevens">
 		<fieldset id="step-1" class="step active" >
 			<legend>Hoe ziet je dak eruit?</legend>
 			<section class="daken">
-				<label for="daktype">
-					<input type="radio" name="daktype" id="daktype" checked />
+				<input type="radio" name="daktype" id="plat" checked />
+				<label for="plat">
 					<img src="/images/plat.png" alt="">
 				</label>
-				<label for="daktype">
-					<input type="radio" name="daktype" id="daktype"/>
+				<input type="radio" name="daktype" id="schuin"/>
+				<label for="schuin">
 					<img src="/images/schuin.png" alt="">
 				</label>
-				<label for="daktype">
-					<input type="radio" name="daktype" id="daktype"/>
+				<input type="radio" name="daktype" id="punt"/>
+				<label for="punt">
 					<img src="/images/punt.png" alt="">
 				</label>
 			</section>
@@ -93,21 +87,27 @@
 </main>
 
 <style>
-.onboard {
-    padding: 0.5em 1em;
+
+legend {
+	font-size: var(--font-size-2);
+	font-weight: var(--font-weight-semi-bold);
 }
 
-.onboard fieldset > img {
+fieldset > img {
     width: 10em;
 }
 
-.onboard > section {    
+main > section {    
     flex-direction: column;
     align-items: center;
     gap: 1em;
 }
 
-.onboard fieldset:first-of-type label {
+fieldset:first-of-type input[type="radio"] {
+	display: none;
+}
+
+fieldset:first-of-type label {
     width: 7.5em;
     aspect-ratio: 1/1;
     background-color: var(--color-grey);
@@ -115,28 +115,34 @@
     display: flex;
     justify-content: center;
     align-items: center;
+	border-radius: .5em;
 }
 
-.onboard fieldset:first-of-type label img {
+input[type=radio]:checked + label {
+  background-color: var(--color-blue-light);
+  transition: .5s;
+}
+
+fieldset:first-of-type label img {
     width: 5em;
 }
 
-.onboard .daken {
+.daken {
     display: flex;
     gap: 2em;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.onboard fieldset section:last-of-type {
+fieldset section:last-of-type {
     position: absolute;
     bottom: 2em;
     display: flex;
     justify-content: space-between;
 }
 
-.onboard > .progress {
-    display: none;
+.progress {
+    display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 1em;
@@ -146,7 +152,7 @@
     transform: translateX(-50%);
 }
 
-.onboard > .progress div {
+.progress div {
     background-color: var(--color-white);
     border: 2px solid var(--color-green);
     width: 1.5em;
@@ -154,19 +160,16 @@
     border-radius: 50%;
 }
 
-.onboard > .progress div:first-of-type {
+.progress div:first-of-type {
     background-color: var(--color-green);
 }
 
-.onboard .step {
+.step {
     display: none;
 }
   
-.onboard .step.active {
+.step.active {
     display: flex;
 }
 
-.onboard .progress.active {
-    display: flex;
-}
 </style>
