@@ -84,7 +84,7 @@
     }
 
     .stat-block div {
-        background-color: var(--color-blue-dark);
+        background-color: var(--color-blue-light);
         border-radius: .5em;
         width: 45%;
     }

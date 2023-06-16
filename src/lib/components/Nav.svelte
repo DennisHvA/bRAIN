@@ -30,6 +30,7 @@
         bottom: 0;
         width: 100%;
         padding: 0 1em;
+        max-width: 25em;
     }
 
     nav ul {
