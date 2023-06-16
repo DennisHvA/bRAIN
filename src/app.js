@@ -70,25 +70,25 @@ if (path === "/onboarding") {
 
 }
 
-if (path === "/gegevens") {
+// if (path === "/gegevens") {
 
-  const formData = JSON.parse(localStorage.getItem('formData'));
+//   const formData = JSON.parse(localStorage.getItem('formData'));
 
-  const daktype = document.getElementById('daktype');
-  const size = document.getElementById('size');
-  const pipes = document.getElementById('pipes');
-  const liter = document.getElementById('liter');
-  const zip = document.getElementById('zip');
-  const huisnummer = document.getElementById('huisnummer');
+//   const daktype = document.getElementById('daktype');
+//   const size = document.getElementById('size');
+//   const pipes = document.getElementById('pipes');
+//   const liter = document.getElementById('liter');
+//   const zip = document.getElementById('zip');
+//   const huisnummer = document.getElementById('huisnummer');
 
-  if (formData) {
-    daktype.textContent = formData.daktype;
-    size.value = formData.size;
-    pipes.value = formData.pipes;
-    liter.value = formData.liter;
-    zip.value = formData.zip;
-    huisnummer.value = formData.huisnummer;
-  }
+//   if (formData) {
+//     daktype.textContent = formData.daktype;
+//     size.value = formData.size;
+//     pipes.value = formData.pipes;
+//     liter.value = formData.liter;
+//     zip.value = formData.zip;
+//     huisnummer.value = formData.huisnummer;
+//   }
 
-  console.log(formData);
-}
+//   console.log(formData);
+// }

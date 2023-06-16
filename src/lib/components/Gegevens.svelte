@@ -1,42 +1,51 @@
-<section class="gegevens">
+<script>
+    import { onMount } from "svelte";
+  
+    let formData = {};
+  
+    onMount(() => {
+      formData = JSON.parse(localStorage.getItem("formData")) || {};
+    });
+  </script>
+  
+  <section class="gegevens">
     <h2>Gegevens</h2>
     <section>
-        <section>
-            <p>Daktype</p>
-            <p id="daktype">Je data</p>
-        </section>
-        <div></div>
+      <section>
+        <p>Daktype</p>
+        <p>{formData.daktype || "Je data"}</p>
+      </section>
+      <div></div>
     </section>
     <section>
-        <section>
-            <p>Aantal vierkante meter</p>
-            <p id="size">Je data</p>
-        </section>
-        <div></div>
+      <section>
+        <p>Aantal vierkante meter</p>
+        <p>{formData.size || "Je data"}</p>
+      </section>
+      <div></div>
     </section>
     <section>
-        <section>
-            <p>Aantal regenpijpen</p>
-            <p id="pipes">Je data</p>
-        </section>
-        <div></div>
+      <section>
+        <p>Aantal regenpijpen</p>
+        <p>{formData.pipes || "Je data"}</p>
+      </section>
+      <div></div>
     </section>
     <section>
-        <section>
-            <p>Aantal liter in de regenton</p>
-            <p id="liter">Je data</p>
-        </section>
-        <div></div>
+      <section>
+        <p>Aantal liter in de regenton</p>
+        <p>{formData.liter || "Je data"}</p>
+      </section>
+      <div></div>
     </section>
     <section>
-        <section>
-            <p>Postcode en huisnummer</p>
-            <p id="zip">Je data</p>
-            <p id="huisnummer"></p>
-        </section>
-        <div></div>
+      <section>
+        <p>Postcode en huisnummer</p>
+        <p>{formData.zip + ' ' + formData.huisnummer|| "Je data"}</p>
+      </section>
+      <div></div>
     </section>
-</section>
+  </section>
 
 <style>
     .gegevens {
