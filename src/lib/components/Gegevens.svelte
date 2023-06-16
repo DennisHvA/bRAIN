@@ -64,4 +64,8 @@
     .gegevens > section > section:first-of-type > p:first-of-type {
         font-weight: var(--font-weight-semi-bold);
     }
+
+    .gegevens h2 {
+        font-size: 1.5em;
+    }
 </style>
