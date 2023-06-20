@@ -15,23 +15,43 @@
             <div class="slider">
                 <figure class="done">
                     <img src="/images/milestone.png" alt="">
+                    <section>
+                        <p>250L</p>
+                        <p>Klein zwembad</p>
+                    </section> 
                 </figure>
 
                 <figure>
                     <div class="showMilestone"><i class="fa-solid fa-chevron-down"></i></div>
                     <img src="/images/milestone.png" alt="">
+                    <section>
+                        <p>500L</p>
+                        <p>Groot zwembad</p>
+                    </section>
                 </figure>
 
                 <figure class="locked">
                     <img src="/images/milestone.png" alt="">
+                    <section>
+                        <p>1000L</p>
+                        <p>Veel</p>
+                    </section>
                 </figure>
 
                 <figure class="locked">
                     <img src="/images/milestone.png" alt="">
+                    <section>
+                        <p>2000L</p>
+                        <p>Heel veel</p>
+                    </section>
                 </figure>
 
                 <figure class="locked">
                     <img src="/images/milestone.png" alt="">
+                    <section>
+                        <p>5000L</p>
+                        <p>Ja idk nog meer</p>
+                    </section>
                 </figure>
             </div>
         </section>
@@ -141,6 +161,28 @@
         border-radius: .5em;
     }
 
+    .slider figure section {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        place-content: center;
+    }
+
+    .slider figure section p {
+        font-size: 1em;
+        text-align: center;
+        color: var(--color-white)
+    }
+
+    .slider figure section p:nth-of-type(2) {
+        font-size: .5em;
+    }
+
+
     .barrelStats {
         margin-bottom: 5em;
     }
@@ -167,7 +209,7 @@
 
     .statsInfo {
         font-family: 600;
-        
+
     }
 
     .done::after {
