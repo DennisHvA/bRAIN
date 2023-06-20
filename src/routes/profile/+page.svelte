@@ -66,7 +66,7 @@
         padding: .5em;
     }
 
-    .profile-regenton div img{
+    .profile-regenton div img {
         width: 100%;
         padding: .5em;
     }

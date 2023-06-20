@@ -79,6 +79,5 @@ main {
 /* ---------------------------------- */
 .landing, .profile, .stats {
     position: relative;
-    height: 90dvh;
     padding: 0;
 }
