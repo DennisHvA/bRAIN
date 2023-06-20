@@ -1,12 +1,46 @@
-<script>
+<script lang="ts">
     import Header from '$lib/components/Header.svelte'
+	import { gql, GraphQLClient } from 'graphql-request'
+
+	function onSubmit(e) {
+		const formData = new FormData(e.target);
+
+		const data = {};
+		for (let field of formData) {
+			const [key, value] = field;
+			data[key] = value;
+		}
+		console.log(data)
+
+		const endpoint = `https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clilodskp031201uhbhpdaltk/master`
+
+		const graphQLClient = new GraphQLClient(endpoint, {
+			headers: {
+				authorization: `Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImdjbXMtbWFpbi1wcm9kdWN0aW9uIn0.eyJ2ZXJzaW9uIjozLCJpYXQiOjE2ODcxNzQyODYsImF1ZCI6WyJodHRwczovL2FwaS1ldS1jZW50cmFsLTEtc2hhcmVkLWV1YzEtMDIuaHlncmFwaC5jb20vdjIvY2xpbG9kc2twMDMxMjAxdWhiaHBkYWx0ay9tYXN0ZXIiLCJtYW5hZ2VtZW50LW5leHQuZ3JhcGhjbXMuY29tIl0sImlzcyI6Imh0dHBzOi8vbWFuYWdlbWVudC5ncmFwaGNtcy5jb20vIiwic3ViIjoiNjAzM2Y1NzAtNjkyYS00NGI1LTlhZTctNDE4ZDFhZDg4ZWNkIiwianRpIjoiY2xqMnMwYXl1MDBjdjAxdDRoaG9vaGRhZyJ9.kfyPp1m-m4jO_tHgPhPvWXp1vW_tdsZqxTYohqaVA-lWxnJtDDOpVsQme1dKC1MWDsmDW68b8cPhDz6cBILvH1OPupmFFlADpzhbWORGJTbiZZ1x1JgjtgzvdaC-_fSLNmYKOFMqGiqvhOUzLSG8r6kosNEROcK0j0BuJqX_PVKWvH0viHxerWH7aFPTPm6BNA2yO2YL6iUKaYjgTFKel_RJy3-g5QKoA3tOxK7ZRAiujE0wGPTHq3sM8zg9RltMZOLbkV5bRPTnL30YHoQQvMrK0HMsFUZMcpBHthQhA5Snwxpt1tKj3msnlwF9qxhznLf5GmQA_nFmZLCYf2ortiyfR9UEHt3j5rr0e6k7s2yY5QKjZG1Mzpd0Xbul7NP0HO-GyA3T66w4K1yhS-do8MbvP_-WvBwFp6wGGvJbt8v5P13T2RZ90oQPSA0PxiR6GyoMOAFZ1nj5G6dYaWg3al3mo4-WITHe5Z6CdsOFkWM7u6kz4_MNmwC-W-p6SYX1_V3hhuX7SOLufeMTy_intDtNfl-V7nYDaC62-uIDK9pl-U_dcSg7E-h8xc6GjAAg-6Og8WHF-W2lD9GKR9cusnaP0PIMwm9bmOC0KY3KGCPuxUOKaHukH2RxDoWAtrAnyDlsz0vWLI-PHKdiFRRSPV0Bfhbe8KDjtxrpdohRefA`,
+			},
+		})
+
+		const query = gql`
+		mutation {
+			createBRAIN_data(data: { aantalRegenpijpen: ${data.pipes}, dakOppervlakte: ${data.size}, inhoudRegenton: ${data.liter}, typeDak: Plat }) {
+				aantalRegenpijpen
+				dakOppervlakte
+				inhoudRegenton
+				typeDak
+			}
+		}
+		`
+
+		const data2 = graphQLClient.request(query)
+		console.log(data2)
+	}
 </script>
 
 <Header />
 
 <main class="onboard">
 
-	<form action="/gegevens">
+	<form on:submit|preventDefault={onSubmit}>
 		<fieldset id="step-1" class="step active" >
 			<legend>Hoe ziet je dak eruit?</legend>
 			<section class="daken">
