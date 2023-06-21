@@ -11,8 +11,8 @@
     })
 
     const query = gql`
-    query MyQuery {
-      gegevens {
+    query {
+      gegevens(stage: DRAFT) {
         aantalRegenpijpen
         dakOppervlakte
         inhoudRegenton
@@ -27,34 +27,35 @@
   }
 </script>
   {#await getData()}   
-    {:then data} 
+    {:then data}
+    {#each data.gegevens as gegevens }
     <section class="gegevens">
       <h2>Gegevens</h2>
       <section>
         <section>
           <p>Daktype</p>
-          <p>{data.gegevens[0].typeDak}</p>
+          <p>{gegevens.typeDak}</p>
         </section>
         <div></div>
       </section>
       <section>
         <section>
           <p>Aantal vierkante meter</p>
-          <p>{data.gegevens[0].dakOppervlakte}</p>
+          <p>{gegevens.dakOppervlakte}</p>
         </section>
         <div></div>
       </section>
       <section>
         <section>
           <p>Aantal regenpijpen</p>
-          <p>{data.gegevens[0].aantalRegenpijpen}</p>
+          <p>{gegevens.aantalRegenpijpen}</p>
         </section>
         <div></div>
       </section>
       <section>
         <section>
           <p>Aantal liter in de regenton</p>
-          <p>{data.gegevens[0].inhoudRegenton}</p>
+          <p>{gegevens.inhoudRegenton}</p>
         </section>
         <div></div>
       </section>
@@ -66,6 +67,7 @@
         <div></div>
       </section>
     </section>
+    {/each}
   {/await}
 
 <style>
