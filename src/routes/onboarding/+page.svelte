@@ -1,97 +1,156 @@
 <script>
     import Header from '$lib/components/Header.svelte'
+
+	import { onMount } from 'svelte';
+
+  let currentStep = 1;
+  let circles;
+  let steps;
+
+  onMount(() => {
+    circles = document.getElementsByClassName('circle');
+    steps = document.getElementsByClassName('step');
+    updateProgressIndicator();
+  });
+
+  function updateProgressIndicator() {
+    for (let i = 0; i < circles.length; i++) {
+      if (i === currentStep - 1) {
+        circles[i].style.backgroundColor = 'var(--color-green)';
+      } else {
+        circles[i].style.backgroundColor = 'transparent';
+      }
+    }
+  }
+
+  function nextStep() {
+    if (currentStep < steps.length && document.getElementById(`step-${currentStep}`).checkValidity()) {
+      steps[currentStep - 1].classList.remove('active');
+      currentStep++;
+      steps[currentStep - 1].classList.add('active');
+      updateProgressIndicator();
+    }
+  }
+
+  function previousStep() {
+    if (currentStep > 1) {
+      steps[currentStep - 1].classList.remove('active');
+      currentStep--;
+      steps[currentStep - 1].classList.add('active');
+      updateProgressIndicator();
+    }
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const daktype = document.querySelector('input[name="daktype"]:checked').id;
+    const size = document.getElementById('size').value;
+    const pipes = document.getElementById('pipes').value;
+    const liter = document.getElementById('liter').value;
+    const zip = document.getElementById('zip').value;
+    const huisnummer = document.getElementById('huisnummer').value;
+
+    const formData = {
+      daktype,
+      size,
+      pipes,
+      liter,
+      zip,
+      huisnummer
+    };
+
+    localStorage.setItem('formData', JSON.stringify(formData));
+  }
 </script>
 
 <Header />
 
 <main class="onboard">
-
-	<form action="/gegevens">
-		<fieldset id="step-1" class="step active" >
-			<legend>Hoe ziet je dak eruit?</legend>
-			<section class="daken">
-				<input type="radio" name="daktype" id="plat" checked />
-				<label for="plat">
-					<img src="/images/plat.png" alt="">
-				</label>
-				<input type="radio" name="daktype" id="schuin"/>
-				<label for="schuin">
-					<img src="/images/schuin.png" alt="">
-				</label>
-				<input type="radio" name="daktype" id="punt"/>
-				<label for="punt">
-					<img src="/images/punt.png" alt="">
-				</label>
-			</section>
-			<section>
-				<button type="button">Volgende</button>
-			</section>
-		</fieldset>
-
-		<fieldset id="step-2" class="step">
-			<legend>Wat is het oppervlakte van je dak?</legend>
-			<label for="size">
-				<input type="text" name="size" placeholder="aantal vierkantemeter (m2)" id="size"/>
-			</label>
-			<img src="/images/m2.png" alt="">
-			<section>
-				<button type="button">Terug</button>
-				<button type="button">Volgende</button>
-			</section>
-		</fieldset>
-
-		<fieldset id="step-3" class="step">
-			<legend>Hoeveel regenpijpen heb je?</legend>
-			<label for="pipes">
-				<input type="number" name="pipes" placeholder="aantal regenpijpen" id="pipes"/>
-			</label>
-			<img src="/images/regenpijp.png" alt="">
-			<section>
-				<button type="button">Terug</button>
-				<button type="button">Volgende</button>
-			</section>
-		</fieldset>
-
-		<fieldset id="step-4" class="step">
-			<legend>Hoeveel liter water kan je er in je regenton?</legend>
-			<label for="liter">
-				<input type="text" name="liter" id="liter"/>
-				(L) Liter water
-			</label>
-			<img src="/images/regenton.png" alt="">
-			<section>
-				<button type="button">Terug</button>
-				<button type="button">Volgende</button>
-			</section>
-		</fieldset>
-
-		<fieldset id="step-5" class="step">
-			<legend>Wat is je adres?</legend>
-			<p>Deze hebben wij nodig om te bepalen hoeveel regen er valt</p>
-			<label for="zip"
-				>Postcode:
-				<input type="text" name="zip" id="zip"/>
-			</label>
-			<label for="huisnummer"
-				>Huisnummer:
-				<input type="text" name="huisnummer" id="huisnummer"/>
-			</label>
-			<img src="/images/huis.png" alt="">
-			<section>
-				<button type="button">Terug</button>
-				<button type="submit">Volgende</button>
-			</section>
-		</fieldset>
+	<form action="/gegevens" on:submit={handleSubmit}>
+	  <fieldset id="step-1" class="step active">
+		<legend>Hoe ziet je dak eruit?</legend>
+		<section class="daken">
+		  <input type="radio" name="daktype" id="plat" checked />
+		  <label for="plat">
+			<img src="/images/plat.png" alt="" />
+		  </label>
+		  <input type="radio" name="daktype" id="schuin" />
+		  <label for="schuin">
+			<img src="/images/schuin.png" alt="" />
+		  </label>
+		  <input type="radio" name="daktype" id="punt" />
+		  <label for="punt">
+			<img src="/images/punt.png" alt="" />
+		  </label>
+		</section>
+		<section>
+		  <button type="button" on:click={nextStep}>Volgende</button>
+		</section>
+	  </fieldset>
+  
+	  <fieldset id="step-2" class="step">
+		<legend>Wat is het oppervlakte van je dak?</legend>
+		<label for="size">
+		  <input type="text" name="size" placeholder="aantal vierkantemeter (m2)" id="size" />
+		</label>
+		<img src="/images/m2.png" alt="" />
+		<section>
+		  <button type="button" on:click={previousStep}>Terug</button>
+		  <button type="button" on:click={nextStep}>Volgende</button>
+		</section>
+	  </fieldset>
+  
+	  <fieldset id="step-3" class="step">
+		<legend>Hoeveel regenpijpen heb je?</legend>
+		<label for="pipes">
+		  <input type="number" name="pipes" placeholder="aantal regenpijpen" id="pipes" />
+		</label>
+		<img src="/images/regenpijp.png" alt="" />
+		<section>
+		  <button type="button" on:click={previousStep}>Terug</button>
+		  <button type="button" on:click={nextStep}>Volgende</button>
+		</section>
+	  </fieldset>
+  
+	  <fieldset id="step-4" class="step">
+		<legend>Hoeveel liter water kan je er in je regenton?</legend>
+		<label for="liter">
+		  <input type="text" name="liter" id="liter" />
+		  (L) Liter water
+		</label>
+		<img src="/images/regenton.png" alt="" />
+		<section>
+		  <button type="button" on:click={previousStep}>Terug</button>
+		  <button type="button" on:click={nextStep}>Volgende</button>
+		</section>
+	  </fieldset>
+  
+	  <fieldset id="step-5" class="step">
+		<legend>Wat is je adres?</legend>
+		<p>Deze hebben wij nodig om te bepalen hoeveel regen er valt</p>
+		<label for="zip">Postcode:
+		  <input type="text" name="zip" id="zip" />
+		</label>
+		<label for="huisnummer">Huisnummer:
+		  <input type="text" name="huisnummer" id="huisnummer" />
+		</label>
+		<img src="/images/huis.png" alt="" />
+		<section>
+		  <button type="button" on:click={previousStep}>Terug</button>
+		  <button type="submit">Volgende</button>
+		</section>
+	  </fieldset>
 	</form>
-
+  
 	<section class="progress active">
-		<div class="circle" />
-		<div class="circle" />
-		<div class="circle" />
-		<div class="circle" />
-		<div class="circle" />
+	  <div class="circle" />
+	  <div class="circle" />
+	  <div class="circle" />
+	  <div class="circle" />
+	  <div class="circle" />
 	</section>
-</main>
+  </main>
 
 <style>
 
