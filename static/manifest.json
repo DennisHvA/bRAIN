@@ -1,0 +1,16 @@
+{
+    "name": "B-Rain",
+    "short_name": "B-Rain",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#ffffff",
+    "icons": [
+      {
+        "src": "/favicon.png",
+        "sizes": "220x220",
+        "type": "image/png"
+      }
+    ]
+  }
+  
