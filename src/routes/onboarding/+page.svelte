@@ -41,8 +41,7 @@
     }
   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
+  function handleSubmit() {
 
     const daktype = document.querySelector('input[name="daktype"]:checked').id;
     const size = document.getElementById('size').value;
