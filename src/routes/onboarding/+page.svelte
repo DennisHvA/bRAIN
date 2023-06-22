@@ -79,28 +79,6 @@
       updateProgressIndicator();
     }
   }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-
-    const daktype = document.querySelector('input[name="daktype"]:checked').id;
-    const size = document.getElementById('size').value;
-    const pipes = document.getElementById('pipes').value;
-    const liter = document.getElementById('liter').value;
-    const zip = document.getElementById('zip').value;
-    const huisnummer = document.getElementById('huisnummer').value;
-
-    const formData = {
-      daktype,
-      size,
-      pipes,
-      liter,
-      zip,
-      huisnummer
-    };
-
-    localStorage.setItem('formData', JSON.stringify(formData));
-  }
 </script>
 
 <Header />
@@ -110,6 +88,7 @@
 	<form action="/gegevens" on:submit={onSubmit}>
 		<fieldset id="step-1" class="step active">
 			<legend>Hoe ziet je dak eruit?</legend>
+			<p>Deze informatie is nodig om de oppervlakte van je dak te berekenen</p>
 			<section class="daken">
 			  <input type="radio" name="daktype" id="plat" checked />
 			  <label for="plat">
@@ -130,9 +109,11 @@
 		  </fieldset>
 	  
 		  <fieldset id="step-2" class="step">
-			<legend>Wat is het oppervlakte van je dak?</legend>
+			<legend>Hoeveel vierkante meter(m2) is je huis?</legend>
+			<p>Deze informatie is nodig om de oppervlakte van je dak te berekenen</p>
 			<label for="size">
-			  <input type="text" name="size" placeholder="aantal vierkantemeter (m2)" id="size" />
+			  <input type="text" name="size" placeholder="aantal vierkantemeter" id="size" />
+			  (m2)
 			</label>
 			<img src="/images/m2.png" alt="" />
 			<section>
@@ -143,6 +124,7 @@
 	  
 		  <fieldset id="step-3" class="step">
 			<legend>Hoeveel regenpijpen heb je?</legend>
+			<p>Deze informatie is nodig om te bepalen hoeveel regen er in de regenton terecht komt</p>
 			<label for="pipes">
 			  <input type="number" name="pipes" placeholder="aantal regenpijpen" id="pipes" />
 			</label>
@@ -155,9 +137,10 @@
 	  
 		  <fieldset id="step-4" class="step">
 			<legend>Hoeveel liter water kan je er in je regenton?</legend>
+			<p>Deze informatie is nodig om uit te rekeken wanneer de regenton vol zit</p>
 			<label for="liter">
-			  <input type="text" name="liter" id="liter" />
-			  (L) Liter water
+			  <input type="text" name="liter" id="liter" placeholder="aantal liter"/>
+			  (L)
 			</label>
 			<img src="/images/regenton.png" alt="" />
 			<section>
@@ -168,12 +151,12 @@
 	  
 		  <fieldset id="step-5" class="step">
 			<legend>Wat is je adres?</legend>
-			<p>Deze hebben wij nodig om te bepalen hoeveel regen er valt</p>
-			<label for="zip">Postcode:
-			  <input type="text" name="zip" id="zip" />
+			<p>Deze informatie is nodig om te bepalen of er regent valt en hoeveel</p>
+			<label for="zip">
+			  <input type="text" name="zip" id="zip" placeholder="plaatsnaam"/>
 			</label>
-			<label for="huisnummer">Huisnummer:
-			  <input type="text" name="huisnummer" id="huisnummer" />
+			<label for="huisnummer">
+			  <input type="text" name="huisnummer" id="huisnummer" placeholder="straatnaam huisnummer"/>
 			</label>
 			<img src="/images/huis.png" alt="" />
 			<section>
@@ -194,6 +177,10 @@
 
 <style>
 
+main {
+	padding: .5em 2em .5em 2em;
+}
+
 fieldset {
     width: 100%;
     display: flex;
@@ -207,7 +194,6 @@ legend {
 	font-size: var(--font-size-2);
 	font-weight: var(--font-weight-semi-bold);
 	margin-bottom: 1em;
-	text-align: center;
 }
 
 fieldset > img {
@@ -221,7 +207,13 @@ main > section {
 }
 
 fieldset:first-of-type input[type="radio"] {
-	display: none;
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
 }
 
 fieldset:first-of-type label {
@@ -244,11 +236,11 @@ fieldset:first-of-type label img {
     width: 5em;
 }
 
-.daken {
+fieldset section:first-of-type {
     display: flex;
     gap: 2em;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 fieldset:last-of-type p {
@@ -292,6 +284,14 @@ fieldset section:last-of-type {
   
 .step.active {
     display: flex;
+}
+
+fieldset > label {
+	width: 100%;
+}
+
+input[type="text"] {
+	width: 15em;
 }
 
 </style>
