@@ -105,6 +105,7 @@
 	<form action="/gegevens" on:submit={onSubmit}>
 		<fieldset id="step-1" class="step active">
 			<legend>Hoe ziet je dak eruit?</legend>
+			<p>Deze informatie is nodig om de oppervlakte van je dak te berekenen</p>
 			<section class="daken">
 			  <input type="radio" name="daktype" id="plat" checked />
 			  <label for="plat">
@@ -125,8 +126,9 @@
 		  </fieldset>
 	  
 		  <fieldset id="step-2" class="step">
-			<legend>Wat is het oppervlakte van je dak?</legend>
-			<label for="size">
+			<legend>Hoeveel vierkante meter(m2) is je huis?</legend>
+			<p>Deze informatie is nodig om de oppervlakte van je dak te berekenen</p>
+			<label for="size"> 
 			  <input type="text" name="size" placeholder="aantal vierkantemeter (m2)" id="size" />
 			</label>
 			<img src="/images/m2.png" alt="" />
@@ -138,6 +140,7 @@
 	  
 		  <fieldset id="step-3" class="step">
 			<legend>Hoeveel regenpijpen heb je?</legend>
+			<p>Deze informatie is nodig om te bepalen hoeveel regen er in de regenton terecht komt</p>
 			<label for="pipes">
 			  <input type="number" name="pipes" placeholder="aantal regenpijpen" id="pipes" />
 			</label>
@@ -150,6 +153,7 @@
 	  
 		  <fieldset id="step-4" class="step">
 			<legend>Hoeveel liter water kan je er in je regenton?</legend>
+			<p>Deze informatie is nodig om uit te rekeken wanneer de regenton vol zit</p>
 			<label for="liter">
 			  <input type="text" name="liter" id="liter" />
 			  (L) Liter water
@@ -162,13 +166,16 @@
 		  </fieldset>
 	  
 		  <fieldset id="step-5" class="step">
-			<legend>Wat is je adres?</legend>
-			<p>Deze hebben wij nodig om te bepalen hoeveel regen er valt</p>
-			<label for="zip">Postcode:
+			<legend>Wat is je woonplaats?</legend>
+			<p>Deze informatie is nodig om te bepalen of er regent valt en hoeveel</p>
+			<!-- <label for="zip">Postcode:
 			  <input type="text" name="zip" id="zip" />
 			</label>
 			<label for="huisnummer">Huisnummer:
 			  <input type="text" name="huisnummer" id="huisnummer" />
+			</label> -->
+			<label for="plaats">
+			  <input type="text" name="plaats" id="plaats" />
 			</label>
 			<img src="/images/huis.png" alt="" />
 			<section>
@@ -216,7 +223,13 @@ main > section {
 }
 
 fieldset:first-of-type input[type="radio"] {
-	display: none;
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
 }
 
 fieldset:first-of-type label {
