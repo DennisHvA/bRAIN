@@ -12,53 +12,76 @@
 <main class="landing">
     <section class="timeline">
         <p>
-            {today.getDate()}
+            Nu
             <br>
             {#if data.daily.precipitation_sum[0] > 0}
                 <img src="images/druppels.png" alt="neerslag">
+                {:else} 
+                <img src="images/sun.png" alt="sunny"> 
             {/if}
+            5mm
         </p>
         <p>
             {today.getDate() + 1}
             <br>
             {#if data.daily.precipitation_sum[1] > 0}
                 <img src="images/druppels.png" alt="neerslag">
+                {:else} 
+                <img src="images/sun.png" alt="sunny"> 
             {/if}
+            0mm
+        
         </p>
         <p>
             {today.getDate() + 2}
             <br>
             {#if data.daily.precipitation_sum[2] > 0}
                 <img src="images/druppels.png" alt="neerslag">
+                {:else} 
+                <img src="images/sun.png" alt="sunny"> 
             {/if}
+
+            0mm
             </p>
         <p>
             {today.getDate() + 3}
             <br>
             {#if data.daily.precipitation_sum[3] > 0}
                 <img src="images/druppels.png" alt="neerslag">
+                {:else} 
+                <img src="images/sun.png" alt="sunny"> 
             {/if}
+            0mm
         </p>
         <p>
             {today.getDate() + 4}
             <br>
             {#if data.daily.precipitation_sum[4] > 0}
                 <img src="images/druppels.png" alt="neerslag">
+                {:else} 
+                <img src="images/sun.png" alt="sunny"> 
             {/if}
+            10mm
         </p>
         <p>
             {today.getDate() + 5}
             <br>
             {#if data.daily.precipitation_sum[5] > 0}
                 <img src="images/druppels.png" alt="neerslag">
+                {:else} 
+                <img src="images/sun.png" alt="sunny"> 
             {/if}
+            0mm
         </p>
         <p>
             {today.getDate() + 6}
             <br>
             {#if data.daily.precipitation_sum[6] > 0}
                 <img src="images/druppels.png" alt="neerslag">
+            {:else} 
+                <img src="images/sun.png" alt="sunny">   
             {/if}
+            0mm
         </p>
     </section>
 
@@ -124,8 +147,9 @@
     
     .timeline p {
         margin: 0;
-        padding: 0;
-        height: 50px;
+        padding: 0.5em;
+        height: 4em;
+        font-size: .8em;
         width: 100%;
         color: var(--color-white);
         background: var(--color-blue-light);
@@ -133,6 +157,7 @@
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        text-align: center;
     }
 
     .timeline img {
