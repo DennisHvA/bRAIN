@@ -74,30 +74,6 @@
       updateProgressIndicator();
     }
   }
-
-  function handleSubmit(event) {
-    event.preventDefault();
-
-    const daktype = document.querySelector('input[name="daktype"]:checked').id;
-    const size = document.getElementById('size').value;
-    const pipes = document.getElementById('pipes').value;
-    const liter = document.getElementById('liter').value;
-    const zip = document.getElementById('zip').value;
-    const huisnummer = document.getElementById('huisnummer').value;
-	const plaats = document.getElementById('plaats').value;
-
-
-    const formData = {
-      daktype,
-      size,
-      pipes,
-      liter,
-      huisnummer,
-	  plaats
-    };
-
-    localStorage.setItem('formData', JSON.stringify(formData));
-  }
 </script>
 
 <Header />
