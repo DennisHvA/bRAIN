@@ -61,8 +61,8 @@
       </section>
       <section>
         <section>
-          <p>Postcode en huisnummer</p>
-          <p></p>
+          <p>Adres</p>
+          <p>{gegevens.locatieAdres}, {gegevens.locatiePlaats}</p>
         </section>
         <div></div>
       </section>

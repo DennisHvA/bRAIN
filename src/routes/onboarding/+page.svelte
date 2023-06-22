@@ -84,14 +84,16 @@
     const liter = document.getElementById('liter').value;
     const zip = document.getElementById('zip').value;
     const huisnummer = document.getElementById('huisnummer').value;
+	const plaats = document.getElementById('plaats').value;
+
 
     const formData = {
       daktype,
       size,
       pipes,
       liter,
-      zip,
-      huisnummer
+      huisnummer,
+	  plaats
     };
 
     localStorage.setItem('formData', JSON.stringify(formData));
@@ -129,7 +131,8 @@
 			<legend>Hoeveel vierkante meter(m2) is je huis?</legend>
 			<p>Deze informatie is nodig om de oppervlakte van je dak te berekenen</p>
 			<label for="size"> 
-			  <input type="text" name="size" placeholder="aantal vierkantemeter (m2)" id="size" />
+			  <input type="text" name="size" placeholder="aantal vierkantemeter" id="size"/>
+			  (m2)
 			</label>
 			<img src="/images/m2.png" alt="" />
 			<section>
@@ -155,8 +158,8 @@
 			<legend>Hoeveel liter water kan je er in je regenton?</legend>
 			<p>Deze informatie is nodig om uit te rekeken wanneer de regenton vol zit</p>
 			<label for="liter">
-			  <input type="text" name="liter" id="liter" />
-			  (L) Liter water
+			  <input type="text" name="liter" id="liter" placeholder="aantal liter"/>
+			  (L)
 			</label>
 			<img src="/images/regenton.png" alt="" />
 			<section>
@@ -166,16 +169,16 @@
 		  </fieldset>
 	  
 		  <fieldset id="step-5" class="step">
-			<legend>Wat is je woonplaats?</legend>
+			<legend>Wat is je adres?</legend>
 			<p>Deze informatie is nodig om te bepalen of er regent valt en hoeveel</p>
 			<!-- <label for="zip">Postcode:
 			  <input type="text" name="zip" id="zip" />
-			</label>
-			<label for="huisnummer">Huisnummer:
-			  <input type="text" name="huisnummer" id="huisnummer" />
 			</label> -->
+			<label for="huisnummer">
+			  <input type="text" name="huisnummer" id="huisnummer" placeholder="straatnaam huisnummer"/>
+			</label>
 			<label for="plaats">
-			  <input type="text" name="plaats" id="plaats" />
+			  <input type="text" name="plaats" id="plaats" placeholder="plaatsnaam"/>
 			</label>
 			<img src="/images/huis.png" alt="" />
 			<section>
@@ -196,6 +199,10 @@
 
 <style>
 
+main {
+	padding: .5em 2em .5em 2em;
+}
+
 fieldset {
     width: 100%;
     display: flex;
@@ -209,7 +216,6 @@ legend {
 	font-size: var(--font-size-2);
 	font-weight: var(--font-weight-semi-bold);
 	margin-bottom: 1em;
-	text-align: center;
 }
 
 fieldset > img {
@@ -252,11 +258,11 @@ fieldset:first-of-type label img {
     width: 5em;
 }
 
-.daken {
+fieldset section:first-of-type {
     display: flex;
     gap: 2em;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 fieldset:last-of-type p {
@@ -302,4 +308,11 @@ fieldset section:last-of-type {
     display: flex;
 }
 
+fieldset > label {
+	width: 100%;
+}
+
+input[type="text"] {
+	width: 15em;
+}
 </style>
