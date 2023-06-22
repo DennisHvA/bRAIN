@@ -1,6 +1,6 @@
 <script>
-    import Header from '../../$lib/components/Header.svelte'
-    import Gegevens from '../../$lib/components/Gegevens.svelte'
+    import Header from '$lib/components/Header.svelte'
+    import Gegevens from '$lib/components/Gegevens.svelte'
 </script>
 
 <Header />
