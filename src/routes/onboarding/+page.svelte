@@ -22,11 +22,16 @@
 
 		const query = gql`
 		mutation {
-			createBRAIN_data(data: { aantalRegenpijpen: ${data.pipes}, dakOppervlakte: ${data.size}, inhoudRegenton: ${data.liter}, typeDak: Plat }) {
+			createBRAIN_data(data: { userId: 0, aantalRegenpijpen: ${data.pipes}, dakOppervlakte: ${data.size}, inhoudRegenton: ${data.liter}, typeDak: Plat, postcode: "${data.zip}", huisnummer: "${data.huisnummer}", huidigOpgevangenWater: 0, totaalOpgevangenWater: 0 }) {
+				userId
 				aantalRegenpijpen
 				dakOppervlakte
 				inhoudRegenton
 				typeDak
+				postcode
+				huisnummer
+				huidigOpgevangenWater
+				totaalOpgevangenWater
 			}
 		}
 		`
@@ -34,88 +39,131 @@
 		const data2 = graphQLClient.request(query)
 		console.log(data2)
 	}
+
+	import { onMount } from 'svelte';
+
+  let currentStep = 1;
+  let circles;
+  let steps;
+
+  onMount(() => {
+    circles = document.getElementsByClassName('circle');
+    steps = document.getElementsByClassName('step');
+    updateProgressIndicator();
+  });
+
+  function updateProgressIndicator() {
+    for (let i = 0; i < circles.length; i++) {
+      if (i === currentStep - 1) {
+        circles[i].style.backgroundColor = 'var(--color-green)';
+      } else {
+        circles[i].style.backgroundColor = 'transparent';
+      }
+    }
+  }
+
+  function nextStep() {
+    if (currentStep < steps.length && document.getElementById(`step-${currentStep}`).checkValidity()) {
+      steps[currentStep - 1].classList.remove('active');
+      currentStep++;
+      steps[currentStep - 1].classList.add('active');
+      updateProgressIndicator();
+    }
+  }
+
+  function previousStep() {
+    if (currentStep > 1) {
+      steps[currentStep - 1].classList.remove('active');
+      currentStep--;
+      steps[currentStep - 1].classList.add('active');
+      updateProgressIndicator();
+    }
+  }
 </script>
 
 <Header />
 
 <main class="onboard">
 
-	<form on:submit|preventDefault={onSubmit}>
-		<fieldset id="step-1" class="step active" >
+	<form action="/gegevens" on:submit={onSubmit}>
+		<fieldset id="step-1" class="step active">
 			<legend>Hoe ziet je dak eruit?</legend>
+			<p>Deze informatie is nodig om de oppervlakte van je dak te berekenen</p>
 			<section class="daken">
-				<input type="radio" name="daktype" id="plat" checked />
-				<label for="plat">
-					<img src="/images/plat.png" alt="">
-				</label>
-				<input type="radio" name="daktype" id="schuin"/>
-				<label for="schuin">
-					<img src="/images/schuin.png" alt="">
-				</label>
-				<input type="radio" name="daktype" id="punt"/>
-				<label for="punt">
-					<img src="/images/punt.png" alt="">
-				</label>
+			  <input type="radio" name="daktype" id="plat" checked />
+			  <label for="plat">
+				<img src="/images/plat.png" alt="" />
+			  </label>
+			  <input type="radio" name="daktype" id="schuin" />
+			  <label for="schuin">
+				<img src="/images/schuin.png" alt="" />
+			  </label>
+			  <input type="radio" name="daktype" id="punt" />
+			  <label for="punt">
+				<img src="/images/punt.png" alt="" />
+			  </label>
 			</section>
 			<section>
-				<button type="button">Volgende</button>
+			  <button type="button" on:click={nextStep}>Volgende</button>
 			</section>
-		</fieldset>
-
-		<fieldset id="step-2" class="step">
-			<legend>Wat is het oppervlakte van je dak?</legend>
+		  </fieldset>
+	  
+		  <fieldset id="step-2" class="step">
+			<legend>Hoeveel vierkante meter(m2) is je huis?</legend>
+			<p>Deze informatie is nodig om de oppervlakte van je dak te berekenen</p>
 			<label for="size">
-				<input type="text" name="size" placeholder="aantal vierkantemeter (m2)" id="size"/>
+			  <input type="text" name="size" placeholder="aantal vierkantemeter" id="size" />
+			  (m2)
 			</label>
-			<img src="/images/m2.png" alt="">
+			<img src="/images/m2.png" alt="" />
 			<section>
-				<button type="button">Terug</button>
-				<button type="button">Volgende</button>
+			  <button type="button" on:click={previousStep}>Terug</button>
+			  <button type="button" on:click={nextStep}>Volgende</button>
 			</section>
-		</fieldset>
-
-		<fieldset id="step-3" class="step">
+		  </fieldset>
+	  
+		  <fieldset id="step-3" class="step">
 			<legend>Hoeveel regenpijpen heb je?</legend>
+			<p>Deze informatie is nodig om te bepalen hoeveel regen er in de regenton terecht komt</p>
 			<label for="pipes">
-				<input type="number" name="pipes" placeholder="aantal regenpijpen" id="pipes"/>
+			  <input type="number" name="pipes" placeholder="aantal regenpijpen" id="pipes" />
 			</label>
-			<img src="/images/regenpijp.png" alt="">
+			<img src="/images/regenpijp.png" alt="" />
 			<section>
-				<button type="button">Terug</button>
-				<button type="button">Volgende</button>
+			  <button type="button" on:click={previousStep}>Terug</button>
+			  <button type="button" on:click={nextStep}>Volgende</button>
 			</section>
-		</fieldset>
-
-		<fieldset id="step-4" class="step">
+		  </fieldset>
+	  
+		  <fieldset id="step-4" class="step">
 			<legend>Hoeveel liter water kan je er in je regenton?</legend>
+			<p>Deze informatie is nodig om uit te rekeken wanneer de regenton vol zit</p>
 			<label for="liter">
-				<input type="text" name="liter" id="liter"/>
-				(L) Liter water
+			  <input type="text" name="liter" id="liter" placeholder="aantal liter"/>
+			  (L)
 			</label>
-			<img src="/images/regenton.png" alt="">
+			<img src="/images/regenton.png" alt="" />
 			<section>
-				<button type="button">Terug</button>
-				<button type="button">Volgende</button>
+			  <button type="button" on:click={previousStep}>Terug</button>
+			  <button type="button" on:click={nextStep}>Volgende</button>
 			</section>
-		</fieldset>
-
-		<fieldset id="step-5" class="step">
+		  </fieldset>
+	  
+		  <fieldset id="step-5" class="step">
 			<legend>Wat is je adres?</legend>
-			<p>Deze hebben wij nodig om te bepalen hoeveel regen er valt</p>
-			<label for="zip"
-				>Postcode:
-				<input type="text" name="zip" id="zip"/>
+			<p>Deze informatie is nodig om te bepalen of er regent valt en hoeveel</p>
+			<label for="zip">
+			  <input type="text" name="zip" id="zip" placeholder="plaatsnaam"/>
 			</label>
-			<label for="huisnummer"
-				>Huisnummer:
-				<input type="text" name="huisnummer" id="huisnummer"/>
+			<label for="huisnummer">
+			  <input type="text" name="huisnummer" id="huisnummer" placeholder="straatnaam huisnummer"/>
 			</label>
-			<img src="/images/huis.png" alt="">
+			<img src="/images/huis.png" alt="" />
 			<section>
-				<button type="button">Terug</button>
-				<button type="submit">Volgende</button>
+			  <button type="button" on:click={previousStep}>Terug</button>
+			  <button type="submit">Volgende</button>
 			</section>
-		</fieldset>
+		  </fieldset>
 	</form>
 
 	<section class="progress active">
@@ -128,6 +176,10 @@
 </main>
 
 <style>
+
+main {
+	padding: .5em 2em .5em 2em;
+}
 
 fieldset {
     width: 100%;
@@ -142,7 +194,6 @@ legend {
 	font-size: var(--font-size-2);
 	font-weight: var(--font-weight-semi-bold);
 	margin-bottom: 1em;
-	text-align: center;
 }
 
 fieldset > img {
@@ -156,7 +207,13 @@ main > section {
 }
 
 fieldset:first-of-type input[type="radio"] {
-	display: none;
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
 }
 
 fieldset:first-of-type label {
@@ -179,11 +236,11 @@ fieldset:first-of-type label img {
     width: 5em;
 }
 
-.daken {
+fieldset section:first-of-type {
     display: flex;
     gap: 2em;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 fieldset:last-of-type p {
@@ -227,6 +284,14 @@ fieldset section:last-of-type {
   
 .step.active {
     display: flex;
+}
+
+fieldset > label {
+	width: 100%;
+}
+
+input[type="text"] {
+	width: 15em;
 }
 
 </style>
