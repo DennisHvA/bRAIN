@@ -12,49 +12,49 @@
 <main class="landing">
     <section class="timeline">
         <p>
-            {today.getDate() - 3}
+            {today.getDate()}
             <br>
             {#if data.daily.precipitation_sum[0] > 0}
                 <img src="images/druppels.png" alt="neerslag">
             {/if}
         </p>
         <p>
-            {today.getDate() - 2}
+            {today.getDate() + 1}
             <br>
             {#if data.daily.precipitation_sum[1] > 0}
                 <img src="images/druppels.png" alt="neerslag">
             {/if}
         </p>
         <p>
-            {today.getDate() - 1}
+            {today.getDate() + 2}
             <br>
             {#if data.daily.precipitation_sum[2] > 0}
                 <img src="images/druppels.png" alt="neerslag">
             {/if}
             </p>
-        <p class="current">
-            {today.getDate()}
+        <p>
+            {today.getDate() + 3}
             <br>
             {#if data.daily.precipitation_sum[3] > 0}
                 <img src="images/druppels.png" alt="neerslag">
             {/if}
         </p>
         <p>
-            {today.getDate() + 1}
+            {today.getDate() + 4}
             <br>
             {#if data.daily.precipitation_sum[4] > 0}
                 <img src="images/druppels.png" alt="neerslag">
             {/if}
         </p>
         <p>
-            {today.getDate() + 2}
+            {today.getDate() + 5}
             <br>
             {#if data.daily.precipitation_sum[5] > 0}
                 <img src="images/druppels.png" alt="neerslag">
             {/if}
         </p>
-        <p alt="{data.daily.precipitation_sum[6]}mm">
-            {today.getDate() + 3}
+        <p>
+            {today.getDate() + 6}
             <br>
             {#if data.daily.precipitation_sum[6] > 0}
                 <img src="images/druppels.png" alt="neerslag">
@@ -101,10 +101,8 @@
         border-radius: 8px;
         aspect-ratio: 5/1;
         cursor: pointer;
-        position: absolute;
-        bottom: 5em;
-        left: 50%;
-        transform: translateX(-50%);
+        margin: 1em auto;
+        display: block;
     }
 
     .barrel {
@@ -139,13 +137,5 @@
 
     .timeline img {
         width: 20%;
-    }
-    
-    .timeline .current {
-        height: 65px;
-        font-size: 1.5em;
-        border-radius: 0 0 10px 10px;
-        background: var(--color-blue-dark);
-        box-shadow: 0px 3px 5px 0px rgba(0,0,0,0.25);
     }
 </style>

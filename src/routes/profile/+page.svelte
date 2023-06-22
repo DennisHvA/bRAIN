@@ -2,11 +2,6 @@
     import Header from '$lib/components/Header.svelte'
     import Gegevens from '$lib/components/Gegevens.svelte'
     import Nav from '$lib/components/Nav.svelte'
-
-    // const roofExpand = document.querySelector('.house');
-
-    // roofExpand
-
 </script>
 
 <Header />
