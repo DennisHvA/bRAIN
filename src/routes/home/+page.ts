@@ -4,14 +4,14 @@ export const load = (async ({ fetch }) => {
     const startDate = new Date();
     const endDate = new Date();
 
-    startDate.setDate(startDate.getDate() - 3);
-    endDate.setDate(endDate.getDate() + 3);
+    startDate.setDate(startDate.getDate());
+    endDate.setDate(endDate.getDate() + 6);
 
     const startMonth = startDate.getMonth() + 1;
     const endMonth = endDate.getMonth() + 1;
 
-    const startDateMonth = ('0' + startMonth).slice(-2)
-    const endDateMonth = ('0' + endMonth).slice(-2)
+    const startDateMonth = ('0' + startMonth)
+    const endDateMonth = ('0' + endMonth)
 
     const startDateFormat = startDate.getFullYear() + '-' + startDateMonth + '-' + startDate.getDate();
     const endDateFormat = endDate.getFullYear() + '-' + endDateMonth + '-' + endDate.getDate();
