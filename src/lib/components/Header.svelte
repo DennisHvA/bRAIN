@@ -10,7 +10,7 @@
 
 <style>
 header > section {
-    padding: 1em;
+    padding: .5em;
 }
 
 header > section h1 {
