@@ -12,11 +12,13 @@
 
     const query = gql`
     query {
-      gegevens(stage: DRAFT) {
+      gegevens(stage: DRAFT, last: 1000) {
         aantalRegenpijpen
         dakOppervlakte
         inhoudRegenton
         typeDak
+        postcode
+        huisnummer
       }
     }
     `
@@ -62,7 +64,7 @@
       <section>
         <section>
           <p>Postcode en huisnummer</p>
-          <p></p>
+          <p>{gegevens.postcode}, {gegevens.huisnummer}</p>
         </section>
         <div></div>
       </section>

@@ -22,11 +22,16 @@
 
 		const query = gql`
 		mutation {
-			createBRAIN_data(data: { aantalRegenpijpen: ${data.pipes}, dakOppervlakte: ${data.size}, inhoudRegenton: ${data.liter}, typeDak: Plat }) {
+			createBRAIN_data(data: { userId: 0, aantalRegenpijpen: ${data.pipes}, dakOppervlakte: ${data.size}, inhoudRegenton: ${data.liter}, typeDak: Plat, postcode: "${data.zip}", huisnummer: "${data.huisnummer}", huidigOpgevangenWater: 0, totaalOpgevangenWater: 0 }) {
+				userId
 				aantalRegenpijpen
 				dakOppervlakte
 				inhoudRegenton
 				typeDak
+				postcode
+				huisnummer
+				huidigOpgevangenWater
+				totaalOpgevangenWater
 			}
 		}
 		`
