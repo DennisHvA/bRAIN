@@ -19,7 +19,7 @@
                 {:else} 
                 <img src="images/sun.png" alt="sunny"> 
             {/if}
-            5mm
+            {data.daily.precipitation_sum[0]}mm
         </p>
         <p>
             {today.getDate() + 1}
@@ -29,8 +29,7 @@
                 {:else} 
                 <img src="images/sun.png" alt="sunny"> 
             {/if}
-            0mm
-        
+            {data.daily.precipitation_sum[1]}mm
         </p>
         <p>
             {today.getDate() + 2}
@@ -40,8 +39,7 @@
                 {:else} 
                 <img src="images/sun.png" alt="sunny"> 
             {/if}
-
-            0mm
+            {data.daily.precipitation_sum[2]}mm
             </p>
         <p>
             {today.getDate() + 3}
@@ -51,7 +49,7 @@
                 {:else} 
                 <img src="images/sun.png" alt="sunny"> 
             {/if}
-            0mm
+            {data.daily.precipitation_sum[3]}mm
         </p>
         <p>
             {today.getDate() + 4}
@@ -61,7 +59,7 @@
                 {:else} 
                 <img src="images/sun.png" alt="sunny"> 
             {/if}
-            10mm
+            {data.daily.precipitation_sum[4]}mm
         </p>
         <p>
             {today.getDate() + 5}
@@ -71,7 +69,7 @@
                 {:else} 
                 <img src="images/sun.png" alt="sunny"> 
             {/if}
-            0mm
+            {data.daily.precipitation_sum[5]}mm
         </p>
         <p>
             {today.getDate() + 6}
@@ -81,7 +79,7 @@
             {:else} 
                 <img src="images/sun.png" alt="sunny">   
             {/if}
-            0mm
+            {data.daily.precipitation_sum[6]}mm
         </p>
     </section>
 
