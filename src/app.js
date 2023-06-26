@@ -70,13 +70,6 @@ if (path === "/onboarding") {
 
 }
 
-const notification = document.querySelector('.notifications');
-const bellButton = document.querySelector('header i')
-
-bellButton.addEventListener("click", function() {
-  notification.classList.toggle('showNotifications')
-})
-
 // if (path === "/gegevens") {
 
 //   const formData = JSON.parse(localStorage.getItem('formData'));
