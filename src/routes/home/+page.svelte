@@ -53,6 +53,7 @@
         closeLeeg.addEventListener("click", () => {
         dialog.close();
      })
+    }
 </script>
 
 <Header />
