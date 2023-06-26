@@ -1,10 +1,34 @@
 <script lang="ts">
+    import { gql, GraphQLClient } from 'graphql-request'
     import Nav from '$lib/components/Nav.svelte'
     import Header from '$lib/components/Header.svelte'
     import type { PageData } from './$types';
 
-    export let today = new Date();
     export let data: PageData;
+
+    const getData = async () => {
+      const endpoint = `https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clilodskp031201uhbhpdaltk/master`
+
+      const graphQLClient = new GraphQLClient(endpoint, {
+        headers: {
+          authorization: `Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImdjbXMtbWFpbi1wcm9kdWN0aW9uIn0.eyJ2ZXJzaW9uIjozLCJpYXQiOjE2ODcyNTM0NTMsImF1ZCI6WyJodHRwczovL2FwaS1ldS1jZW50cmFsLTEtc2hhcmVkLWV1YzEtMDIuaHlncmFwaC5jb20vdjIvY2xpbG9kc2twMDMxMjAxdWhiaHBkYWx0ay9tYXN0ZXIiLCJtYW5hZ2VtZW50LW5leHQuZ3JhcGhjbXMuY29tIl0sImlzcyI6Imh0dHBzOi8vbWFuYWdlbWVudC5ncmFwaGNtcy5jb20vIiwic3ViIjoiYmM5MDMyN2YtZjQ3Ni00YzlkLTlmMjAtNGViMzYwMzE0YTg1IiwianRpIjoiY2xqNDM1NHk3MHJ2bTAxdDk1d2Y4YmxyOCJ9.mtX12JDjdjYcfHqwUg8HeDHMSvfRi2KVhCxRU5r4chMmpQX1BvgZgDvml03NI7zsMZKeVWL_9YIDrjJHw12M-uwWbAbERQlZMhENVIduCyOVfVkZrd31t1tPMikqo2jH3jtMgL-1H01Svk4SdlSub04BTzdYs7s4Xs0z-BCA5EGRr9fXWg75_ckhla4nyYsF0i4v2SazPhgZuD-kjVSK6mlmMCr0kbQg_3vSwNwlS2FWcBTrYR4NXKdWgM2kxipdve74chk8S6o-U_SqvatZUHIAG264asJm67r0q83sPG3sqRAjaC2QyTV8-6dhxSJKI65mfpoxXRORBfLk5wWfAqK8CRAe0p0RyznS_kiPpUyAaOT5hMLwufKKRYBuqgAN7DtK8WWU8uSVFLHHZeK2SM-uGTi3oFM_aRP9pOGVX5pjJnjII6yxedWa3jsb52nJ3neUo_oXIv7LbNfaxPTg6qGICp7jQJ-TQRQ1IDTGpQGYu0BXftXsqZKYTVYDS0Swme1ZMlOgkf-nX2wZM85ktdugZL7Kna1yWbZpOMJx_pnHhAj-yzh1Id7qrnYrHGL220cXVBRKNQJz0A0VXNWOtMG5P7DyuEAd9zhoOA4YgOcxyXnrFls9a8qL-x0ADqWf2HbndxA7evk3ByGMvQz9NwhHscp2aCC0vjvtfBQ2OCM`,
+        },
+      })
+
+      const query = gql`
+      query {
+        gegevens(stage: DRAFT, last: 1) {
+          id
+          huidigOpgevangenWater
+          inhoudRegenton
+        }
+      }
+      `
+
+      const gegevens = await graphQLClient.request(query);
+      console.log(gegevens)
+      return gegevens.gegevens;
+    }
 </script>
 
 <Header />
@@ -22,7 +46,7 @@
             {data.daily.precipitation_sum[0]}mm
         </p>
         <p>
-            {today.getDate() + 1}
+            {data.daily.time[1].slice(-2)}
             <br>
             {#if data.daily.precipitation_sum[1] > 0}
                 <img src="images/druppels.png" alt="neerslag">
@@ -32,7 +56,7 @@
             {data.daily.precipitation_sum[1]}mm
         </p>
         <p>
-            {today.getDate() + 2}
+            {data.daily.time[2].slice(-2)}
             <br>
             {#if data.daily.precipitation_sum[2] > 0}
                 <img src="images/druppels.png" alt="neerslag">
@@ -42,7 +66,7 @@
             {data.daily.precipitation_sum[2]}mm
             </p>
         <p>
-            {today.getDate() + 3}
+            {data.daily.time[3].slice(-2)}
             <br>
             {#if data.daily.precipitation_sum[3] > 0}
                 <img src="images/druppels.png" alt="neerslag">
@@ -52,7 +76,7 @@
             {data.daily.precipitation_sum[3]}mm
         </p>
         <p>
-            {today.getDate() + 4}
+            {data.daily.time[4].slice(-2)}
             <br>
             {#if data.daily.precipitation_sum[4] > 0}
                 <img src="images/druppels.png" alt="neerslag">
@@ -62,7 +86,7 @@
             {data.daily.precipitation_sum[4]}mm
         </p>
         <p>
-            {today.getDate() + 5}
+            {data.daily.time[5].slice(-2)}
             <br>
             {#if data.daily.precipitation_sum[5] > 0}
                 <img src="images/druppels.png" alt="neerslag">
@@ -72,7 +96,7 @@
             {data.daily.precipitation_sum[5]}mm
         </p>
         <p>
-            {today.getDate() + 6}
+            {data.daily.time[6].slice(-2)}
             <br>
             {#if data.daily.precipitation_sum[6] > 0}
                 <img src="images/druppels.png" alt="neerslag">
@@ -85,7 +109,12 @@
 
    <section class="info">
         <h2>Spatwater's Regenton</h2>
-        <p>125/250L</p>
+        {#await getData()}
+          
+        {:then gegevens}
+        <p>{gegevens[0].huidigOpgevangenWater}/{gegevens[0].inhoudRegenton}L</p> 
+          
+        {/await}
    </section>
 
    <section class="barrel">
