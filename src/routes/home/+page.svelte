@@ -243,6 +243,6 @@
     }
 
     .timeline img {
-        width: 20%;
+        height: 16px;
     }
 </style>
