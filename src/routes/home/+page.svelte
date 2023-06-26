@@ -3,6 +3,7 @@
     import Nav from '$lib/components/Nav.svelte'
     import Header from '$lib/components/Header.svelte'
     import type { PageData } from './$types';
+    import { onMount } from 'svelte';
 
     export let data: PageData;
 
@@ -29,6 +30,29 @@
       console.log(gegevens)
       return gegevens.gegevens;
     }
+    
+    let openLeegButton;
+    let closeLeeg;
+    let dialog;
+
+    onMount(() => {
+        openLeegButton = document.getElementsByClassName('leeg')[0];
+        closeLeeg = document.getElementsByClassName('terug')[0];
+        dialog = document.getElementsByClassName('leegDialog')[0];
+        openDialog();
+        closeDialog();
+    });
+
+    function openDialog() {
+        openLeegButton.addEventListener("click", () => {
+        dialog.showModal();
+      })
+    }
+
+    function closeDialog() {
+        closeLeeg.addEventListener("click", () => {
+        dialog.close();
+     })
 </script>
 
 <Header />
@@ -206,6 +230,15 @@
 
    <button class="leeg">Leeg</button>
 
+   <dialog class="leegDialog">
+      <h3>Regenton legen</h3>
+      <p>Weet je zeker dat je je regenton wilt legen?</p>
+      <section>
+        <button class="terug">Terug</button>
+        <button>Leeg</button>
+      </section>  
+   </dialog>
+
     <Nav />
 
 </main>
@@ -248,7 +281,7 @@
     }
 
     .timeline {
-        height: 65px;
+        height: 100%;
         width: 100%;
         display: flex;
         margin-bottom: 1em;
@@ -257,7 +290,7 @@
     .timeline p {
         margin: 0;
         padding: 0.5em;
-        height: 4em;
+        height: 5em;
         font-size: .8em;
         width: 100%;
         color: var(--color-white);
@@ -271,5 +304,45 @@
 
     .timeline img {
         height: 16px;
+    }
+
+    dialog {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      background-color: var(--color-grey);
+      padding: 1em;
+      border: 2px solid var(--color-blue-light);
+      border-radius: .5em;
+      max-width: 15em;
+    }
+
+    dialog section {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    dialog button {
+      cursor: pointer;
+    }
+
+    dialog h3 {
+      margin-bottom: .5em;
+    }
+
+    dialog p {
+      margin-bottom: 1.5em;
+    }
+
+    dialog .terug {
+      background-color: var(--color-white);
+      border: 1px solid var(--color-green);
+      color: var(--color-green);
+      font-weight: 100;
+    }
+
+    dialog::backdrop {
+      background-color: rgb(0,0,0, .25);
     }
 </style>

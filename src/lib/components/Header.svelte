@@ -1,11 +1,26 @@
-<script >
-    
+<script lang="ts">
+    import { onMount } from 'svelte';
+
+    let notification;
+    let bellButton;
+
+    onMount(() => {
+        notification = document.getElementsByClassName('notifications')[0];
+        bellButton = document.getElementsByClassName('bellbutton')[0];
+        openPopup();
+    });
+
+    function openPopup() {
+        bellButton.addEventListener("click", function() {
+            notification.classList.toggle('showNotifications');
+        });
+    }
 </script>
 
 <header>
     <section class="header-top">
         <h1>B-rain</h1>
-        <i class="fa-solid fa-bell"></i> 
+        <i class="fa-solid fa-bell bellbutton"></i> 
     </section> 
     <section class="notifications">
         <h2>Notificaties</h2>
