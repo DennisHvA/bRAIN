@@ -179,6 +179,11 @@
 
 main {
 	padding: .5em 2em .5em 2em;
+	display: flex;
+	flex-direction: column;
+	gap: 2em;
+	justify-content: space-between;
+    height: calc(100vh - 10em);
 }
 
 fieldset {
@@ -255,18 +260,18 @@ fieldset section:last-of-type {
     justify-content: space-between;
 }
 
-.progress {
+main > section {
     display: flex;
     flex-direction: row;
     justify-content: center;
     gap: 1em;
-    position: absolute;
+    /* position: absolute;
     bottom: 7.5em;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); */
 }
 
-.progress div {
+main > section div {
     background-color: var(--color-white);
     border: 2px solid var(--color-green);
     width: 1.5em;
@@ -274,7 +279,7 @@ fieldset section:last-of-type {
     border-radius: 50%;
 }
 
-.progress div:first-of-type {
+main > section div:first-of-type {
     background-color: var(--color-green);
 }
 

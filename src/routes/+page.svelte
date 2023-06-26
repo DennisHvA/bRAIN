@@ -10,6 +10,7 @@
         display: flex;
         flex-direction: column;
         gap: 1em;
+        height: 100vh;
         justify-content: center;
         align-items: center;
     }
