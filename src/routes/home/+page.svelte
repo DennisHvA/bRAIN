@@ -131,6 +131,8 @@
       
             .cls-9 {
               fill: #384b61;
+              transform: scaleY(20%) translateX(0px);
+              transform-origin: bottom;
             }
       
             .cls-2 {

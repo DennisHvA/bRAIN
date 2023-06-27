@@ -241,7 +241,7 @@ fieldset:first-of-type label img {
     width: 5em;
 }
 
-fieldset section:first-of-type {
+fieldset .daken {
     display: flex;
     gap: 2em;
     flex-wrap: wrap;
@@ -255,9 +255,10 @@ fieldset:last-of-type p {
 fieldset section:last-of-type {
     position: absolute;
     bottom: 2em;
-	gap: 8em;
+	gap: 7em;
     display: flex;
     justify-content: space-between;
+	margin: 0 auto;
 }
 
 main > section {
