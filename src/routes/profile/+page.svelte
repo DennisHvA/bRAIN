@@ -1,5 +1,5 @@
 <script>
-    import Header from '$lib/components/Header.svelte'
+    import Header from '$lib/components/HeaderHome.svelte'
     import Gegevens from '$lib/components/Gegevens.svelte'
     import Nav from '$lib/components/Nav.svelte'
 </script>

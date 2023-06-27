@@ -1,7 +1,7 @@
 <script lang="ts">
     import { gql, GraphQLClient } from 'graphql-request'
     import Nav from '$lib/components/Nav.svelte'
-    import Header from '$lib/components/Header.svelte'
+    import Header from '$lib/components/HeaderHome.svelte'
     import type { PageData } from './$types';
     import { onMount } from 'svelte';
 	import { empty } from 'svelte/internal';

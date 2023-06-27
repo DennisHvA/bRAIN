@@ -1,6 +1,6 @@
 <script lang="ts">
     import Nav from '$lib/components/Nav.svelte'
-    import Header from '$lib/components/Header.svelte'
+    import Header from '$lib/components/HeaderHome.svelte'
 </script>
 
 <Header />
