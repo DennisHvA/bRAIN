@@ -3,6 +3,7 @@
     import Nav from '$lib/components/Nav.svelte'
     import Header from '$lib/components/Header.svelte'
     import type { PageData } from './$types';
+	import { transition_out } from 'svelte/internal';
 
     export let data: PageData;
 
@@ -131,8 +132,19 @@
       
             .cls-9 {
               fill: #384b61;
-              transform: scaleY(20%) translateX(0px);
+              transform: scaleY(100%) translateX(0px);
               transform-origin: bottom;
+              animation: scale 2s ease-in-out;
+              animation-fill-mode: forwards;
+            }
+
+            @keyframes scale {
+              0% {
+                transform: scaleY(0%) translateX(0px);
+              }
+              /* 100% {
+                transform: scaleY(50%) translateX(0px);
+              } */
             }
       
             .cls-2 {
