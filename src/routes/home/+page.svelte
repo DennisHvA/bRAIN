@@ -106,76 +106,75 @@
 
 <main class="landing">
     <section class="timeline">
-        <p>
-            Nu
-            <br>
-            {#if data.daily.precipitation_sum[0] > 0}
-                <img src="images/druppels.png" alt="neerslag">
-                {:else} 
-                <img src="images/sun.png" alt="sunny"> 
-            {/if}
-            {data.daily.precipitation_sum[0]}mm
-        </p>
-        <p>
-            {data.daily.time[1].slice(-2)}
-            <br>
-            {#if data.daily.precipitation_sum[1] > 0}
-                <img src="images/druppels.png" alt="neerslag">
-                {:else} 
-                <img src="images/sun.png" alt="sunny"> 
-            {/if}
-            {data.daily.precipitation_sum[1]}mm
-        </p>
-        <p>
-            {data.daily.time[2].slice(-2)}
-            <br>
-            {#if data.daily.precipitation_sum[2] > 0}
-                <img src="images/druppels.png" alt="neerslag">
-                {:else} 
-                <img src="images/sun.png" alt="sunny"> 
-            {/if}
-            {data.daily.precipitation_sum[2]}mm
-            </p>
-        <p>
-            {data.daily.time[3].slice(-2)}
-            <br>
-            {#if data.daily.precipitation_sum[3] > 0}
-                <img src="images/druppels.png" alt="neerslag">
-                {:else} 
-                <img src="images/sun.png" alt="sunny"> 
-            {/if}
-            {data.daily.precipitation_sum[3]}mm
-        </p>
-        <p>
-            {data.daily.time[4].slice(-2)}
-            <br>
-            {#if data.daily.precipitation_sum[4] > 0}
-                <img src="images/druppels.png" alt="neerslag">
-                {:else} 
-                <img src="images/sun.png" alt="sunny"> 
-            {/if}
-            {data.daily.precipitation_sum[4]}mm
-        </p>
-        <p>
-            {data.daily.time[5].slice(-2)}
-            <br>
-            {#if data.daily.precipitation_sum[5] > 0}
-                <img src="images/druppels.png" alt="neerslag">
-                {:else} 
-                <img src="images/sun.png" alt="sunny"> 
-            {/if}
-            {data.daily.precipitation_sum[5]}mm
-        </p>
-        <p>
-            {data.daily.time[6].slice(-2)}
-            <br>
-            {#if data.daily.precipitation_sum[6] > 0}
-                <img src="images/druppels.png" alt="neerslag">
-            {:else} 
-                <img src="images/sun.png" alt="sunny">   
-            {/if}
-            {data.daily.precipitation_sum[6]}mm
-        </p>
+      <section>
+        <p>Nu</p>
+        {#if data.daily.precipitation_sum[0] > 0}
+          <img src="images/druppels.png" alt="icoon van regendruppels">
+          {:else} 
+          <img src="images/sun.png" alt="icoon van zon"> 
+        {/if}
+        <p>{data.daily.precipitation_sum[0]}<span>mm</span></p>
+      </section>
+
+      <section>
+        <p>{data.daily.time[1].slice(-2)}</p>
+        {#if data.daily.precipitation_sum[1] > 0}
+          <img src="images/druppels.png" alt="icoon van regendruppels">
+          {:else} 
+          <img src="images/sun.png" alt="suicoon van zonnny"> 
+        {/if}
+        <p>{data.daily.precipitation_sum[1]}<span>mm</span></p>
+      </section>
+
+      <section>
+        <p>{data.daily.time[2].slice(-2)}</p>
+        {#if data.daily.precipitation_sum[2] > 0}
+          <img src="images/druppels.png" alt="icoon van regendruppels">
+          {:else} 
+          <img src="images/sun.png" alt="icoon van zon"> 
+        {/if}
+        <p>{data.daily.precipitation_sum[2]}<span>mm</span></p>
+      </section>
+
+      <section>
+        <p>{data.daily.time[3].slice(-2)}</p>
+        {#if data.daily.precipitation_sum[3] > 0}
+          <img src="images/druppels.png" alt="icoon van regendruppels">
+          {:else} 
+          <img src="images/sun.png" alt="icoon van zon"> 
+        {/if}
+        <p>{data.daily.precipitation_sum[3]}<span>mm</span></p>
+      </section>
+
+      <section>
+        <p>{data.daily.time[4].slice(-2)}</p>
+        {#if data.daily.precipitation_sum[4] > 0}
+          <img src="images/druppels.png" alt="icoon van regendruppels">
+          {:else} 
+          <img src="images/sun.png" alt="icoon van zon"> 
+        {/if}
+        <p>{data.daily.precipitation_sum[4]}<span>mm</span></p>
+      </section>
+
+      <section>
+        <p>{data.daily.time[5].slice(-2)}</p>
+        {#if data.daily.precipitation_sum[5] > 0}
+          <img src="images/druppels.png" alt="icoon van regendruppels">
+          {:else} 
+          <img src="images/sun.png" alt="icoon van zon"> 
+        {/if}
+        <p>{data.daily.precipitation_sum[5]} <span>mm</span></p>
+      </section>
+
+      <section>
+        <p>{data.daily.time[6].slice(-2)}</p>
+        {#if data.daily.precipitation_sum[6] > 0}
+          <img src="images/druppels.png" alt="icoon van regendruppels">
+          {:else} 
+          <img src="images/sun.png" alt="icoon van zon"> 
+        {/if}
+        <p>{data.daily.precipitation_sum[6]}<span>mm</span></p>
+      </section>
     </section>
 
    <section class="info">
@@ -331,10 +330,41 @@
         height: 100%;
         width: 100%;
         display: flex;
-        margin-bottom: 1em;
+        /* margin-bottom: 1em; */
+        background-color: var(--color-blue-light);
+    }
+
+    .timeline section {
+      padding: .5em;
+      width: calc(100% / 7);
+      display: flex;
+      flex-direction: column;
+      gap: .4em;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .timeline img {
+      height: 1.3em;
+    }
+
+    .timeline p {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      color: var(--color-white);
+    }
+
+    .timeline p:last-of-type {
+      font-size: .8em;
+    }
+
+    .timeline span {
+      font-size: .7em;
     }
     
-    .timeline p {
+    
+    /* .timeline p {
         margin: 0;
         padding: 0.5em;
         height: 5em;
@@ -351,7 +381,7 @@
 
     .timeline img {
         height: 16px;
-    }
+    } */
 
     dialog {
       position: absolute;
