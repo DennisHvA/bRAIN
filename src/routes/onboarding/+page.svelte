@@ -2,6 +2,30 @@
     import Header from '$lib/components/Header.svelte'
 	import { gql, GraphQLClient } from 'graphql-request'
 
+	import { onMount } from 'svelte';
+
+	let currentStep;
+	let circles;
+	let steps;
+	let step;
+
+	onMount(() => {
+		currentStep = 0;
+		steps = document.querySelectorAll(".step");
+		circles = document.querySelectorAll(".circle");
+		updateProgressIndicator();
+	});
+
+	function updateProgressIndicator() {
+		for (let i = 0; i < circles.length; i++) {
+			if (i === currentStep) {
+				circles[i].style.backgroundColor = 'var(--color-green)';
+			} else {
+				circles[i].style.backgroundColor = 'transparent';
+			}
+		}
+  	}
+
 	function onSubmit(e) {
 		const formData = new FormData(e.target);
 
@@ -12,73 +36,71 @@
 		}
 		console.log(data)
 
-		const endpoint = `https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clilodskp031201uhbhpdaltk/master`
+		step = document.querySelectorAll(`#step-${currentStep + 1} input`)
+		console.log(step)
+		if (step[0].value !== "" && step[1].value !== "") {
+			const endpoint = `https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clilodskp031201uhbhpdaltk/master`
 
-		const graphQLClient = new GraphQLClient(endpoint, {
-			headers: {
-				authorization: `Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImdjbXMtbWFpbi1wcm9kdWN0aW9uIn0.eyJ2ZXJzaW9uIjozLCJpYXQiOjE2ODcyNTM0NTMsImF1ZCI6WyJodHRwczovL2FwaS1ldS1jZW50cmFsLTEtc2hhcmVkLWV1YzEtMDIuaHlncmFwaC5jb20vdjIvY2xpbG9kc2twMDMxMjAxdWhiaHBkYWx0ay9tYXN0ZXIiLCJtYW5hZ2VtZW50LW5leHQuZ3JhcGhjbXMuY29tIl0sImlzcyI6Imh0dHBzOi8vbWFuYWdlbWVudC5ncmFwaGNtcy5jb20vIiwic3ViIjoiYmM5MDMyN2YtZjQ3Ni00YzlkLTlmMjAtNGViMzYwMzE0YTg1IiwianRpIjoiY2xqNDM1NHk3MHJ2bTAxdDk1d2Y4YmxyOCJ9.mtX12JDjdjYcfHqwUg8HeDHMSvfRi2KVhCxRU5r4chMmpQX1BvgZgDvml03NI7zsMZKeVWL_9YIDrjJHw12M-uwWbAbERQlZMhENVIduCyOVfVkZrd31t1tPMikqo2jH3jtMgL-1H01Svk4SdlSub04BTzdYs7s4Xs0z-BCA5EGRr9fXWg75_ckhla4nyYsF0i4v2SazPhgZuD-kjVSK6mlmMCr0kbQg_3vSwNwlS2FWcBTrYR4NXKdWgM2kxipdve74chk8S6o-U_SqvatZUHIAG264asJm67r0q83sPG3sqRAjaC2QyTV8-6dhxSJKI65mfpoxXRORBfLk5wWfAqK8CRAe0p0RyznS_kiPpUyAaOT5hMLwufKKRYBuqgAN7DtK8WWU8uSVFLHHZeK2SM-uGTi3oFM_aRP9pOGVX5pjJnjII6yxedWa3jsb52nJ3neUo_oXIv7LbNfaxPTg6qGICp7jQJ-TQRQ1IDTGpQGYu0BXftXsqZKYTVYDS0Swme1ZMlOgkf-nX2wZM85ktdugZL7Kna1yWbZpOMJx_pnHhAj-yzh1Id7qrnYrHGL220cXVBRKNQJz0A0VXNWOtMG5P7DyuEAd9zhoOA4YgOcxyXnrFls9a8qL-x0ADqWf2HbndxA7evk3ByGMvQz9NwhHscp2aCC0vjvtfBQ2OCM`,
-			},
-		})
+			const graphQLClient = new GraphQLClient(endpoint, {
+				headers: {
+					authorization: `Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6ImdjbXMtbWFpbi1wcm9kdWN0aW9uIn0.eyJ2ZXJzaW9uIjozLCJpYXQiOjE2ODcyNTM0NTMsImF1ZCI6WyJodHRwczovL2FwaS1ldS1jZW50cmFsLTEtc2hhcmVkLWV1YzEtMDIuaHlncmFwaC5jb20vdjIvY2xpbG9kc2twMDMxMjAxdWhiaHBkYWx0ay9tYXN0ZXIiLCJtYW5hZ2VtZW50LW5leHQuZ3JhcGhjbXMuY29tIl0sImlzcyI6Imh0dHBzOi8vbWFuYWdlbWVudC5ncmFwaGNtcy5jb20vIiwic3ViIjoiYmM5MDMyN2YtZjQ3Ni00YzlkLTlmMjAtNGViMzYwMzE0YTg1IiwianRpIjoiY2xqNDM1NHk3MHJ2bTAxdDk1d2Y4YmxyOCJ9.mtX12JDjdjYcfHqwUg8HeDHMSvfRi2KVhCxRU5r4chMmpQX1BvgZgDvml03NI7zsMZKeVWL_9YIDrjJHw12M-uwWbAbERQlZMhENVIduCyOVfVkZrd31t1tPMikqo2jH3jtMgL-1H01Svk4SdlSub04BTzdYs7s4Xs0z-BCA5EGRr9fXWg75_ckhla4nyYsF0i4v2SazPhgZuD-kjVSK6mlmMCr0kbQg_3vSwNwlS2FWcBTrYR4NXKdWgM2kxipdve74chk8S6o-U_SqvatZUHIAG264asJm67r0q83sPG3sqRAjaC2QyTV8-6dhxSJKI65mfpoxXRORBfLk5wWfAqK8CRAe0p0RyznS_kiPpUyAaOT5hMLwufKKRYBuqgAN7DtK8WWU8uSVFLHHZeK2SM-uGTi3oFM_aRP9pOGVX5pjJnjII6yxedWa3jsb52nJ3neUo_oXIv7LbNfaxPTg6qGICp7jQJ-TQRQ1IDTGpQGYu0BXftXsqZKYTVYDS0Swme1ZMlOgkf-nX2wZM85ktdugZL7Kna1yWbZpOMJx_pnHhAj-yzh1Id7qrnYrHGL220cXVBRKNQJz0A0VXNWOtMG5P7DyuEAd9zhoOA4YgOcxyXnrFls9a8qL-x0ADqWf2HbndxA7evk3ByGMvQz9NwhHscp2aCC0vjvtfBQ2OCM`,
+				},
+			})
 
-		const query = gql`
-		mutation {
-			createBRAIN_data(data: { userId: 0, aantalRegenpijpen: ${data.pipes}, dakOppervlakte: ${data.size}, inhoudRegenton: ${data.liter}, typeDak: Plat, postcode: "${data.zip}", huisnummer: "${data.huisnummer}", huidigOpgevangenWater: 0, totaalOpgevangenWater: 0 }) {
-				userId
-				aantalRegenpijpen
-				dakOppervlakte
-				inhoudRegenton
-				typeDak
-				postcode
-				huisnummer
-				huidigOpgevangenWater
-				totaalOpgevangenWater
+			const query = gql`
+			mutation {
+				createBRAIN_data(data: { userId: 0, aantalRegenpijpen: ${data.pipes}, dakOppervlakte: ${data.size}, inhoudRegenton: ${data.liter}, typeDak: Plat, postcode: "${data.zip}", huisnummer: "${data.huisnummer}", huidigOpgevangenWater: 0, totaalOpgevangenWater: 0 }) {
+					userId
+					aantalRegenpijpen
+					dakOppervlakte
+					inhoudRegenton
+					typeDak
+					postcode
+					huisnummer
+					huidigOpgevangenWater
+					totaalOpgevangenWater
+				}
 			}
-		}
-		`
+			`
 
-		const data2 = graphQLClient.request(query)
-		console.log(data2)
+			const data2 = graphQLClient.request(query)
+			console.log(data2)
+		} else {
+			e.preventDefault();
+			step.forEach((step) => {
+				if (step.value === "") {
+					step.style.border = "2px solid red";
+				} else {
+					step.style.border = "2px solid var(--color-green)";
+				}
+			});
+		}
 	}
 
-	import { onMount } from 'svelte';
+	function nextStep() {
+		step = document.querySelector(`#step-${currentStep + 1} input`)
+		console.log(step)
+		if (step.value !== "") {
+			step.style.border = "2px solid var(--color-green)";
+			if (currentStep < steps.length) {
+				steps[currentStep].classList.remove("active");
+				currentStep++;
+				steps[currentStep].classList.add("active");
+				updateProgressIndicator();
+			}
+		} else {
+			step.style.border = "2px solid red";
+		}
+	}
 
-  let currentStep = 1;
-  let circles;
-  let steps;
-
-  onMount(() => {
-    circles = document.getElementsByClassName('circle');
-    steps = document.getElementsByClassName('step');
-    updateProgressIndicator();
-  });
-
-  function updateProgressIndicator() {
-    for (let i = 0; i < circles.length; i++) {
-      if (i === currentStep - 1) {
-        circles[i].style.backgroundColor = 'var(--color-green)';
-      } else {
-        circles[i].style.backgroundColor = 'transparent';
-      }
-    }
-  }
-
-  function nextStep() {
-    if (currentStep < steps.length && document.getElementById(`step-${currentStep}`).checkValidity()) {
-      steps[currentStep - 1].classList.remove('active');
-      currentStep++;
-      steps[currentStep - 1].classList.add('active');
-      updateProgressIndicator();
-    }
-  }
-
-  function previousStep() {
-    if (currentStep > 1) {
-      steps[currentStep - 1].classList.remove('active');
-      currentStep--;
-      steps[currentStep - 1].classList.add('active');
-      updateProgressIndicator();
-    }
-  }
+	function previousStep() {
+		if (currentStep > 0) {
+			steps[currentStep].classList.remove("active");
+			currentStep--;
+			steps[currentStep].classList.add("active");
+			updateProgressIndicator();
+		}
+	}
 </script>
 
 <Header />
@@ -163,7 +185,7 @@
 			<img src="/images/huis.png" alt="" />
 			<section>
 			  <button type="button" on:click={previousStep}>Terug</button>
-			  <button type="submit">Volgende</button>
+			  <button type="submit">Submit</button>
 			</section>
 		  </fieldset>
 	</form>
@@ -317,5 +339,4 @@ fieldset > label {
 input[type="text"] {
 	width: 15em;
 }
-
 </style>
