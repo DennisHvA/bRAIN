@@ -20,7 +20,7 @@
         padding: 1em;
     }
     
-    section > div{
+    section > div {
         width: 1em;
         aspect-ratio: 1/1;
         border-top: var(--color-green) solid 3px;
