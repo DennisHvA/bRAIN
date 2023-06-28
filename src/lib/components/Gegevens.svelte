@@ -12,7 +12,7 @@
 
     const query = gql`
     query {
-      gegevens(stage: DRAFT, last: 1000) {
+      gegevens(stage: DRAFT, last: 1) {
         aantalRegenpijpen
         dakOppervlakte
         inhoudRegenton
