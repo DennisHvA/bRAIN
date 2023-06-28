@@ -29,20 +29,35 @@
 
       const gegevens = await graphQLClient.request(query);
       console.log(gegevens)
+      updateTon(gegevens.gegevens);
       return gegevens.gegevens;
     }
     
     let openLeegButton;
     let closeLeeg;
     let dialog;
+    let ton;
 
     onMount(() => {
         openLeegButton = document.getElementsByClassName('leeg')[0];
         closeLeeg = document.getElementsByClassName('terug')[0];
         dialog = document.getElementsByClassName('leegDialog')[0];
+        ton = document.querySelector(".cls-9");
         openDialog();
         closeDialog();
     });
+
+    function updateTon(ton) {
+      let inhoudPercentage = 100 / ton[0].inhoudRegenton * ton[0].huidigOpgevangenWater;
+      console.log("Percentage: " + inhoudPercentage);
+      const r = document.querySelector(':root');
+      const rs = getComputedStyle(r);
+      if (inhoudPercentage < 20) {
+        r.style.setProperty('--inhoudPercentage', '20%');
+      } else {
+        r.style.setProperty('--inhoudPercentage', `${inhoudPercentage}%`);
+      }
+    }
 
     function openDialog() {
         openLeegButton.addEventListener("click", () => {
@@ -98,7 +113,9 @@
 
       const submit = await graphQLClient.request(query);
       console.log(submit)
-      location.reload()
+      
+      dialog.close();
+      ton.classList.add("isLeeg")
     }
 </script>
 
@@ -192,6 +209,10 @@
     <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 345.5 434.5">
       <defs>
         <style>
+          :root {
+            --inhoudPercentage: 20%;
+          }
+
           .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7 {
             fill: none;
           }
@@ -202,11 +223,15 @@
     
           .cls-9 {
             fill: #384b61;
-            transform: scaleY(50%) translateX(0px);
+            transform: scaleY(var(--inhoudPercentage)) translateX(0px);
             transform-origin: bottom;
             /* animation: scale 1s ease-in-out; */
             transition: 1s;
             animation-fill-mode: forwards;
+          }
+
+          .isLeeg {
+            transform: scaleY(20%) translateX(0px);
           }
 
           @keyframes scale {
