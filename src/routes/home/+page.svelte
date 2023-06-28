@@ -4,6 +4,8 @@
     import Header from '$lib/components/HeaderHome.svelte'
     import type { PageData } from './$types';
 
+    import { onMount } from 'svelte';
+
     export let data: PageData;
 
     const getData = async () => {
