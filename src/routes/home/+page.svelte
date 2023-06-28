@@ -4,7 +4,7 @@
     import Header from '$lib/components/HeaderHome.svelte'
     import type { PageData } from './$types';
     import { onMount } from 'svelte';
-	import { empty } from 'svelte/internal';
+	  import { empty } from 'svelte/internal';
 
     export let data: PageData;
 
