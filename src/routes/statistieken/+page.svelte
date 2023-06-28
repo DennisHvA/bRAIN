@@ -235,5 +235,4 @@
         width: 7.5em;
         height: calc(100% - 5px);
     }
-    
 </style>
