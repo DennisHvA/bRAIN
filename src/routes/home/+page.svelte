@@ -134,7 +134,8 @@
             fill: #384b61;
             transform: scaleY(50%) translateX(0px);
             transform-origin: bottom;
-            animation: scale 2s ease-in-out;
+            /* animation: scale 1s ease-in-out; */
+            transition: 1s;
             animation-fill-mode: forwards;
           }
 
