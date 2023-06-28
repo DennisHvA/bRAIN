@@ -1,22 +1,44 @@
 <script>
-    
-</script>
+    import { onMount } from 'svelte';
+  
+    onMount(() => {
+      const mainElement = document.querySelector("main");
+      const navElement1 = document.querySelector("nav ul li:nth-of-type(1)")
+      const navElement2 = document.querySelector("nav ul li:nth-of-type(2)")
+      const navElement3 = document.querySelector("nav ul li:nth-of-type(3)")
+  
+      if (mainElement.classList.contains("landing")) {
+        navElement1?.classList.add("active")
+      }
+  
+      if (mainElement.classList.contains("stats")) {
+        navElement2?.classList.add("active")
+      }
+  
+      if (mainElement.classList.contains("profile")) {
+        navElement3?.classList.add("active")
+      }   
+    });
+</script>  
 
 <nav>
     <ul>
         <li>
             <a href="/home">
                 <img src="icons/home.svg" alt="">
+                <p>Home</p>
             </a>
         </li>
         <li>
             <a href="/statistieken">
                 <img src="icons/stats.svg" alt="">
+                <p>Statistieken</p>
             </a>
         </li>
         <li>
             <a href="/profile">
                 <img src="icons/profile.svg" alt="">
+                <p>Profiel</p>
             </a>
         </li>
     </ul>
@@ -38,16 +60,32 @@
         justify-content: space-between;
     }
 
+    nav ul li {
+        opacity: .5;
+    }
+
     nav ul li a {
         width: 100%;
-        display: block;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         border-radius: 0;
+        padding: 0.5em 0.5em;
         background-color: var(--color-grey);
         color: var(--color-blue-dark);
     }
 
     nav ul li img {
-        width: 2em;
+        width: 1.5em;
         aspect-ratio: 1/1;
+    }
+
+    nav ul li p {
+        font-size: .75em;
+    }
+
+    :global(.active) {
+        opacity: 1 !important;
     }
 </style>

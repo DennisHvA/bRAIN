@@ -1,6 +1,6 @@
 <script lang="ts">
     import Nav from '$lib/components/Nav.svelte'
-    import Header from '$lib/components/Header.svelte'
+    import Header from '$lib/components/HeaderHome.svelte'
 </script>
 
 <Header />
@@ -17,7 +17,7 @@
                     <img src="/images/milestone.png" alt="">
                     <section>
                         <p>250L</p>
-                        <p>Klein zwembad</p>
+                        <p>Half uur douchen</p>
                     </section> 
                 </figure>
 
@@ -26,7 +26,7 @@
                     <img src="/images/milestone.png" alt="">
                     <section>
                         <p>500L</p>
-                        <p>Groot zwembad</p>
+                        <p>Uur douchen</p>
                     </section>
                 </figure>
 
@@ -34,7 +34,7 @@
                     <img src="/images/milestone.png" alt="">
                     <section>
                         <p>1000L</p>
-                        <p>Veel</p>
+                        <p>Is 1m2 aan water</p>
                     </section>
                 </figure>
 
@@ -42,7 +42,7 @@
                     <img src="/images/milestone.png" alt="">
                     <section>
                         <p>2000L</p>
-                        <p>Heel veel</p>
+                        <p>Klein zwembad</p>
                     </section>
                 </figure>
 
@@ -50,7 +50,7 @@
                     <img src="/images/milestone.png" alt="">
                     <section>
                         <p>5000L</p>
-                        <p>Ja idk nog meer</p>
+                        <p>Groot zwembad</p>
                     </section>
                 </figure>
             </div>
@@ -235,5 +235,4 @@
         width: 7.5em;
         height: calc(100% - 5px);
     }
-    
 </style>

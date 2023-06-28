@@ -65,6 +65,27 @@ input[type="text"]:focus {
     border: 3px solid var(--color-blue-dark);
 }
 
+noscript {
+    width: 100vw;
+    height: 100dvh;
+    position: absolute;
+    background-color: var(--color-background);
+    top:0;
+    left:0;
+    display: grid;
+    place-content: center;
+    padding: 2.5em;
+    text-align: center;
+}
+
+noscript h2 {
+    margin: 1em;
+}
+
+noscript img {
+    margin: 0 auto;
+}
+
 /*  */
 
 main {
