@@ -112,10 +112,12 @@
 			<legend>Hoeveel vierkante meter(m2) is je huis?</legend>
 			<p>Deze informatie is nodig om de oppervlakte van je dak te berekenen</p>
 			<label for="size">
-			  <input type="text" name="size" placeholder="aantal vierkantemeter" id="size" />
+			  <input type="text" name="size" placeholder="aantal vierkantemeter" id="size"/>
 			  (m2)
 			</label>
-			<img src="/images/m2.png" alt="" />
+			<img src="/images/plat2.png" alt="">
+			<img src="/images/schuin2.png" alt="">
+			<img src="/images/punt2.png" alt="">
 			<section>
 			  <button type="button" on:click={previousStep}>Terug</button>
 			  <button type="button" on:click={nextStep}>Volgende</button>
@@ -230,6 +232,22 @@ fieldset:first-of-type label {
     justify-content: center;
     align-items: center;
 	border-radius: .5em;
+}
+
+fieldset:nth-of-type(2) img {
+	display: none;
+}
+
+:has(fieldset:first-of-type input[type="radio"]:nth-of-type(1):checked) fieldset:nth-of-type(2) img:nth-of-type(1) {
+	display: block;
+}
+
+:has(fieldset:first-of-type input[type="radio"]:nth-of-type(2):checked) fieldset:nth-of-type(2) img:nth-of-type(2) {
+	display: block;
+}
+
+:has(fieldset:first-of-type input[type="radio"]:nth-of-type(3):checked) fieldset:nth-of-type(2) img:nth-of-type(3) {
+	display: block;
 }
 
 input[type=radio]:checked + label {
