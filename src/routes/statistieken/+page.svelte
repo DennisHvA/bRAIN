@@ -72,12 +72,6 @@
                 <p class="statsInfo">300L</p>
                 <p class="statsInfo">10x geleegd</p>
             </div>
-            <div>
-                <p>Regenton 3</p>
-                <img src="images/regenton.png" alt="regenton">
-                <p class="statsInfo">102L</p>
-                <p class="statsInfo">7x geleegd</p>
-            </div>
         </section>
     </section>
 
