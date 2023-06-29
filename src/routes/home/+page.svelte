@@ -11,6 +11,7 @@
 
     export let elementHuidigOpgevangenWater = 0
     export let elementInhoudRegenton = 0
+    let noti
 
     const getData = async () => {
       console.log("getdata");
@@ -37,6 +38,9 @@
       updateTon(gegevens.gegevens);
       elementHuidigOpgevangenWater = gegevens.gegevens[0].huidigOpgevangenWater;
       elementInhoudRegenton = gegevens.gegevens[0].inhoudRegenton
+      if (elementHuidigOpgevangenWater === elementInhoudRegenton) {
+        noti.classList.add("show");
+      }
       console.log(huidigOpgevangenWater)
       console.log(inhoudRegenton)
     }
@@ -57,6 +61,7 @@
         closeDialog();
         gras = document.querySelector('.gras');
         kraan = document.querySelector('.cls-6');
+        noti = document.querySelector(".noti")
         console.log("test")
         getData();
     });

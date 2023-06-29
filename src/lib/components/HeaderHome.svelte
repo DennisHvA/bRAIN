@@ -24,6 +24,16 @@
     </section> 
     <section class="notifications">
         <h2>Notificaties</h2>
+        <div class="noti">
+            <figure>
+                <p>!</p>
+            </figure>
+            <div class="notification-info">
+                <p>Nu</p>
+                <p>Je regenton is vol!</p>
+            </div>
+       </div>
+
        <div>
             <figure>
                 <p>!</p>
@@ -102,5 +112,13 @@ header {
 
 .notification-info p:first-of-type{
     font-weight: 100;
+}
+
+.notifications > .noti {
+    display: none;
+}
+
+:global(.notifications > .show) {
+    display: flex !important;
 }
 </style>
