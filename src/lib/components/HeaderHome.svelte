@@ -60,7 +60,7 @@ header {
 
 .header-top h1 {
     text-align: center;
-    font-size: 2em;
+    font-size: 1.75em;
 }
 
 .header-top i {
