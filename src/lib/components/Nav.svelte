@@ -1,6 +1,25 @@
 <script>
-    
-</script>
+    import { onMount } from 'svelte';
+  
+    onMount(() => {
+      const mainElement = document.querySelector("main");
+      const navElement1 = document.querySelector("nav ul li:nth-of-type(1)")
+      const navElement2 = document.querySelector("nav ul li:nth-of-type(2)")
+      const navElement3 = document.querySelector("nav ul li:nth-of-type(3)")
+  
+      if (mainElement.classList.contains("landing")) {
+        navElement1?.classList.add("active")
+      }
+  
+      if (mainElement.classList.contains("stats")) {
+        navElement2?.classList.add("active")
+      }
+  
+      if (mainElement.classList.contains("profile")) {
+        navElement3?.classList.add("active")
+      }   
+    });
+</script>  
 
 <nav>
     <ul>
@@ -41,6 +60,10 @@
         justify-content: space-between;
     }
 
+    nav ul li {
+        opacity: .5;
+    }
+
     nav ul li a {
         width: 100%;
         display: flex;
@@ -60,5 +83,9 @@
 
     nav ul li p {
         font-size: .75em;
+    }
+
+    :global(.active) {
+        opacity: 1 !important;
     }
 </style>

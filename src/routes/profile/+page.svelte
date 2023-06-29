@@ -1,6 +1,6 @@
 <script>
     import Header from '$lib/components/HeaderHome.svelte'
-    import Gegevens from '$lib/components/Gegevens.svelte'
+    import GegevensHuis from '$lib/components/GegevensHuis.svelte'
     import Nav from '$lib/components/Nav.svelte'
 </script>
 
@@ -44,31 +44,13 @@
                             </button>
                         </div>
 
-                        <div class="profile-infoblock">
-                            <div>
-                                <p>Dak oppervlakte</p>
-                                <p>200m2</p>
-                            </div>
-                        </div>
-
-                        <div class="profile-infoblock">
-                            <div>
-                                <p>Regenpijpen</p>
-                                <p>5</p>
-                            </div>
-                        </div>
+                        <section class="profile-gegevens">
+                            <GegevensHuis/>
+                        </section>
                     </section>
                 </section>
 
-                <section class="house">
-                    <img src="images/houseprofile.png" alt="">
-                    <section>
-                        <p>Blok hut dak</p>
-                    </section>
-                </section>
-                <section class="profile-gegevens">
-                    <Gegevens/>
-                </section>
+
             </section>
 
     </section>
