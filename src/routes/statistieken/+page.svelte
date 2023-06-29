@@ -166,12 +166,14 @@
         margin: .5em;
         scroll-snap-align: center;
         position: relative;
+        
     }
 
     .slider figure img {
         width: 15em;
         border-radius: .5em;
         object-fit: cover;
+        border: 1px solid var(--color-blue-dark)
     }
 
     .slider figure section {
