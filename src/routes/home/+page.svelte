@@ -91,6 +91,10 @@
       const gegevens = await graphQLClient.request(query);
       resetData(gegevens.gegevens[0].id);
       return gegevens.gegevens[0].id;
+
+      const gras = document.getElementsByClassName('gras')[0];
+      gras.style.backgroundcolor = "var(--color-green)";
+      console.log(gras);
     }
 
     const resetData = async (id) => {
@@ -123,169 +127,160 @@
 
 <main class="landing">
     <section class="timeline">
-        <p>
-            Nu
-            <br>
-            {#if data.daily.precipitation_sum[0] > 0}
-                <img src="images/druppels.png" alt="neerslag">
-                {:else} 
-                <img src="images/sun.png" alt="sunny"> 
-            {/if}
-            {data.daily.precipitation_sum[0]}mm
-        </p>
-        <p>
-            {data.daily.time[1].slice(-2)}
-            <br>
-            {#if data.daily.precipitation_sum[1] > 0}
-                <img src="images/druppels.png" alt="neerslag">
-                {:else} 
-                <img src="images/sun.png" alt="sunny"> 
-            {/if}
-            {data.daily.precipitation_sum[1]}mm
-        </p>
-        <p>
-            {data.daily.time[2].slice(-2)}
-            <br>
-            {#if data.daily.precipitation_sum[2] > 0}
-                <img src="images/druppels.png" alt="neerslag">
-                {:else} 
-                <img src="images/sun.png" alt="sunny"> 
-            {/if}
-            {data.daily.precipitation_sum[2]}mm
-            </p>
-        <p>
-            {data.daily.time[3].slice(-2)}
-            <br>
-            {#if data.daily.precipitation_sum[3] > 0}
-                <img src="images/druppels.png" alt="neerslag">
-                {:else} 
-                <img src="images/sun.png" alt="sunny"> 
-            {/if}
-            {data.daily.precipitation_sum[3]}mm
-        </p>
-        <p>
-            {data.daily.time[4].slice(-2)}
-            <br>
-            {#if data.daily.precipitation_sum[4] > 0}
-                <img src="images/druppels.png" alt="neerslag">
-                {:else} 
-                <img src="images/sun.png" alt="sunny"> 
-            {/if}
-            {data.daily.precipitation_sum[4]}mm
-        </p>
-        <p>
-            {data.daily.time[5].slice(-2)}
-            <br>
-            {#if data.daily.precipitation_sum[5] > 0}
-                <img src="images/druppels.png" alt="neerslag">
-                {:else} 
-                <img src="images/sun.png" alt="sunny"> 
-            {/if}
-            {data.daily.precipitation_sum[5]}mm
-        </p>
-        <p>
-            {data.daily.time[6].slice(-2)}
-            <br>
-            {#if data.daily.precipitation_sum[6] > 0}
-                <img src="images/druppels.png" alt="neerslag">
-            {:else} 
-                <img src="images/sun.png" alt="sunny">   
-            {/if}
-            {data.daily.precipitation_sum[6]}mm
-        </p>
+      <section>
+        <p>Nu</p>
+        {#if data.daily.precipitation_sum[0] > 0}
+        <img src="images/druppel.svg" alt="icoon van regendruppels">
+        {:else} 
+          <img src="images/wolk.svg" alt="icoon van wolk"> 
+        {/if}
+        <p>{data.daily.precipitation_sum[0]}<span>mm</span></p>
+      </section>
+
+      <section>
+        <p>{data.daily.time[1].slice(-2)}</p>
+        {#if data.daily.precipitation_sum[1] > 0}
+        <img src="images/druppel.svg" alt="icoon van regendruppels">
+        {:else} 
+          <img src="images/wolk.svg" alt="icoon van wolk"> 
+        {/if}
+        <p>{data.daily.precipitation_sum[1]}<span>mm</span></p>
+      </section>
+
+      <section>
+        <p>{data.daily.time[2].slice(-2)}</p>
+        {#if data.daily.precipitation_sum[2] > 0}
+        <img src="images/druppel.svg" alt="icoon van regendruppels">
+        {:else} 
+        <img src="images/wolk.svg" alt="icoon van wolk"> 
+        {/if}
+        <p>{data.daily.precipitation_sum[2]}<span>mm</span></p>
+      </section>
+
+      <section>
+        <p>{data.daily.time[3].slice(-2)}</p>
+        {#if data.daily.precipitation_sum[3] > 0}
+        <img src="images/druppel.svg" alt="icoon van regendruppels">
+        {:else} 
+          <img src="images/wolk.svg" alt="icoon van wolk"> 
+        {/if}
+        <p>{data.daily.precipitation_sum[3]}<span>mm</span></p>
+      </section>
+
+      <section>
+        <p>{data.daily.time[4].slice(-2)}</p>
+        {#if data.daily.precipitation_sum[4] > 0}
+        <img src="images/druppel.svg" alt="icoon van regendruppels">
+        {:else} 
+          <img src="images/wolk.svg" alt="icoon van wolk"> 
+        {/if}
+        <p>{data.daily.precipitation_sum[4]}<span>mm</span></p>
+      </section>
+
+      <section>
+        <p>{data.daily.time[5].slice(-2)}</p>
+        {#if data.daily.precipitation_sum[5] > 0}
+        <img src="images/druppel.svg" alt="icoon van regendruppels">
+        {:else} 
+          <img src="images/wolk.svg" alt="icoon van wolk"> 
+        {/if}
+        <p>{data.daily.precipitation_sum[5]} <span>mm</span></p>
+      </section>
+
+      <section>
+        <p>{data.daily.time[6].slice(-2)}</p>
+        {#if data.daily.precipitation_sum[6] > 0}
+          <img src="images/druppel.svg" alt="icoon van regendruppels">
+          {:else} 
+          <img src="images/wolk.svg" alt="icoon van wolk"> 
+        {/if}
+        <p>{data.daily.precipitation_sum[6]}<span>mm</span></p>
+      </section>
     </section>
 
-   <section class="info">
-        <h2>Spatwater's Regenton</h2>
-        {#await getData()}
-          
-        {:then gegevens}
-        <p>{gegevens[0].huidigOpgevangenWater}/{gegevens[0].inhoudRegenton}L</p> 
-          
-        {/await}
-   </section>
-
    <section class="barrel">
+    <section class="info">
+      <h2>Spatwater's Regenton</h2>
+      {#await getData()}
+        
+      {:then gegevens}
+      <p>{gegevens[0].huidigOpgevangenWater} / {gegevens[0].inhoudRegenton}L</p> 
+        
+      {/await}
+    </section>
+
     <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 345.5 434.5">
-      <defs>
-        <style>
-          :root {
-            --inhoudPercentage: 20%;
-          }
-
-          .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7 {
-            fill: none;
-          }
-    
-          .cls-8 {
-            fill: #ebebeb;
-          }
-    
-          .cls-9 {
-            fill: #384b61;
-            transform: scaleY(var(--inhoudPercentage)) translateX(0px);
-            transform-origin: bottom;
-            /* animation: scale 1s ease-in-out; */
-            transition: 1s;
-            animation-fill-mode: forwards;
-          }
-
-          .isLeeg {
-            transform: scaleY(20%) translateX(0px);
-          }
-
-          @keyframes scale {
-            0% {
-              transform: scaleY(0%) translateX(0px);
+        <defs>
+          <style>
+            :root {
+              --inhoudPercentage: 20%;
             }
-            /* 100% {
+            
+            .cls-1, .cls-2, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7 {
+              fill: none;
+            }
+      
+            .cls-8 {
+              fill: #ebebeb;
+            }
+      
+            .cls-9 {
+              fill: #384b61;
               transform: scaleY(50%) translateX(0px);
-            } */
-          }
-    
-          .cls-2 {
-            stroke: #4ecd5d;
-          }
-    
-          .cls-2, .cls-10, .cls-3, .cls-4, .cls-5, .cls-6 {
-            stroke-linecap: round;
-          }
-    
-          .cls-2, .cls-3 {
-            stroke-width: 10px;
-          }
-    
-          .cls-2, .cls-5, .cls-6 {
-            stroke-linejoin: round;
-          }
-    
-          .cls-10 {
-            opacity: .25;
-          }
-    
-          .cls-10, .cls-3, .cls-4 {
-            stroke-miterlimit: 10;
-          }
-    
-          .cls-10, .cls-3, .cls-4, .cls-5 {
-            stroke: #d8d8d8;
-          }
-    
-          .cls-10, .cls-4 {
-            stroke-width: 5px;
-          }
-    
-          .cls-5, .cls-6 {
-            stroke-width: 15px;
-          }
-    
-          .cls-6 {
-            stroke: #77c4e3;
-          }
-    
-          .cls-7 {
-            clip-path: url(#clippath);
-          }
+              transform-origin: bottom;
+              transition: 1s;
+              animation-fill-mode: forwards;
+            }
+            
+            .isLeeg {
+              transform: scaleY(20%) translateX(0px);
+            }
+      
+            .cls-2 {
+              stroke: #4ecd5d;
+            }
+      
+            .cls-2, .cls-10, .cls-3, .cls-4, .cls-5, .cls-6 {
+              stroke-linecap: round;
+            }
+      
+            .cls-2, .cls-3 {
+              stroke-width: 10px;
+            }
+      
+            .cls-2, .cls-5, .cls-6 {
+              stroke-linejoin: round;
+            }
+      
+            .cls-10 {
+              opacity: .25;
+            }
+      
+            .cls-10, .cls-3, .cls-4 {
+              stroke-miterlimit: 10;
+            }
+      
+            .cls-10, .cls-3, .cls-4, .cls-5 {
+              stroke: #d8d8d8;
+            }
+      
+            .cls-10, .cls-4 {
+              stroke-width: 5px;
+            }
+      
+            .cls-5, .cls-6 {
+              stroke-width: 15px;
+            }
+      
+            .cls-6 {
+              stroke: #77c4e3;
+              transform: scaleY(100%) translateX(0px);
+              transition: 2s;
+              transform-origin: bottom;
+            }
+      
+            .cls-7 {
+              clip-path: url(#clippath);
         </style>
         <clipPath id="clippath">
           <rect class="cls-1" x="5.5" y="4" width="266" height="423" rx="77.35" ry="77.35"/>
@@ -309,12 +304,15 @@
             <ellipse class="cls-4" cx="139" cy="22" rx="105" ry="19.5"/>
           </g>
         </g>
-      </g>
-    </svg>
+      </svg>
+
+      <section class="background">
+        <div class="gras"></div>
+        <div></div>
+        <div></div>
+      </section>
+      <button class="leeg">Leeg</button>
    </section>
-
-
-   <button class="leeg">Leeg</button>
 
    <dialog class="leegDialog">
       <h3>Regenton legen</h3>
@@ -330,12 +328,78 @@
 </main>
 
 <style>
+
+  main {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+  }
+
+    /* timeline */
+
+    .timeline {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        /* margin-bottom: 1em; */
+        background-color: var(--color-blue-light);
+    }
+
+    .timeline p {
+      font-family: var(--font-title);
+      font-weight: var(--font-weight-semi-bold);
+    }
+
+    .timeline section {
+      padding: .5em;
+      width: calc(100% / 7);
+      display: flex;
+      flex-direction: column;
+      gap: .4em;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .timeline section:first-of-type {
+      background-color: var(--color-blue-dark);
+    }
+
+    .timeline section:nth-last-child(2) {
+      background-color: var(--color-green);
+    }
+
+    .timeline img {
+      height: 1em;
+      aspect-ratio: 1/1;
+    }
+
+    .timeline p {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      color: var(--color-white);
+    }
+
+    .timeline p:last-of-type {
+      font-size: .8em;
+    }
+
+    .timeline span {
+      font-size: .7em;
+    }
+
+    /* regenton */
+
     .landing h2 {
         color: var(--color-blue-light);
-        font-size: 1.25em;
+        font-size: 1.5em;
+        font-family: var(--font-title);
     }
 
     .info {
+      display: flex;
+      flex-direction: column;
+      gap: .3em;
         text-align: center;
         background-color: var(--color-background);
     }
@@ -344,7 +408,7 @@
         color: var(--color-blue-dark);
         font-weight: var(--font-weight-semi-bold);
         font-size: 1.25em;
-        padding: .5em 0 1em 0;
+        font-family: var(--font-title);
     }
 
 
@@ -352,13 +416,14 @@
         border-radius: 8px;
         aspect-ratio: 5/1;
         cursor: pointer;
-        margin: 1em auto;
         display: block;
     }
 
     .barrel {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        gap: 1em;
     }
 
     .barrel svg {
@@ -366,31 +431,40 @@
         transform: translateX(20px);
     }
 
-    .timeline {
-        height: 100%;
-        width: 100%;
-        display: flex;
-        margin-bottom: 1em;
-    }
-    
-    .timeline p {
-        margin: 0;
-        padding: 0.5em;
-        height: 5em;
-        font-size: .8em;
-        width: 100%;
-        color: var(--color-white);
-        background: var(--color-blue-light);
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        text-align: center;
+    .background {
+      position: relative;
+      width: 100%;
     }
 
-    .timeline img {
-        height: 16px;
+    .background div {
+      height: 1em
     }
+
+    .background div:first-of-type {
+      position: absolute;
+      z-index: -1;
+      top: -4.5em;
+      width: 100%;
+      height: 6em;
+      background-color: #A6DAAC;
+      animation: gras 2s forwards;
+    }
+
+    @keyframes gras {
+      form {background-color: #A6DAAC;}
+      to {background-color: #70DC7D;}
+    } 
+
+    .background div:nth-of-type(2) {
+      height: 1.5em;
+      background-color: #BEBEBE;
+    }
+
+    .background div:nth-of-type(3){
+      background-color: #EDEDED;
+    }
+
+    /* popup */
 
     dialog {
       position: absolute;
