@@ -108,7 +108,8 @@
 
     .total > p:nth-of-type(3) {
         text-align: center;
-        padding: 1em;
+        padding: 1em 1em 0 1em;
+        margin-bottom: 0;
     }
 
 
