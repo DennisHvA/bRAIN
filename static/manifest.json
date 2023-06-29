@@ -3,8 +3,9 @@
     "short_name": "B-Rain",
     "start_url": "/",
     "display": "standalone",
+    "description": "Een app die je helpt met het opvangen van water",
     "background_color": "#ffffff",
-    "theme_color": "#ffffff",
+    "theme_color": "#7faec5",
     "icons": [
     {
         "src": "/favicon.png",
