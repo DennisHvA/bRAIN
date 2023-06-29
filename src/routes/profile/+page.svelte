@@ -50,6 +50,9 @@
                     </section>
                 </section>
 
+                <button class="homeadd">
+                    Huis toevoegen
+                </button>
 
             </section>
 
@@ -141,10 +144,17 @@
         width:100%;
         padding: .5em;
         height: 8em;
+        max-width: 7.5em;
     }
 
     .barrel-infoblock button {
         height: 50%;
         border-radius: 50%;
+    }
+
+    .homeadd {
+        width: 100%;
+        max-width: 10em;
+        margin: 0 auto;
     }
 </style>

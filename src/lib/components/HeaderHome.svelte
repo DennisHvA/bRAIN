@@ -48,7 +48,6 @@
 
 <style>
 header {
-    max-width: 25em;
     margin: 0 auto;
     position: relative;
 }
