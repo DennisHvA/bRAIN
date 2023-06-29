@@ -52,6 +52,7 @@
         bottom: 0;
         width: 100%;
         padding: 0 1em;
+        z-index: 10;
     }
 
     nav ul {
