@@ -5,6 +5,7 @@
     import type { PageData } from './$types';
 
     import { onMount } from 'svelte';
+	import { graphqlSync } from 'graphql';
 
     export let data: PageData;
 
@@ -44,6 +45,8 @@
     let closeLeeg;
     let dialog;
     let ton;
+    let gras;
+    let kraan;
 
     onMount(() => {
         openLeegButton = document.getElementsByClassName('leeg')[0];
@@ -52,6 +55,8 @@
         ton = document.querySelector(".cls-9");
         openDialog();
         closeDialog();
+        gras = document.querySelector('.gras');
+        kraan = document.querySelector('.cls-6');
         console.log("test")
         getData();
     });
@@ -100,10 +105,6 @@
       const gegevens = await graphQLClient.request(query);
       resetData(gegevens.gegevens[0].id);
       return gegevens.gegevens[0].id;
-
-      const gras = document.getElementsByClassName('gras')[0];
-      gras.style.backgroundcolor = "var(--color-green)";
-      console.log(gras);
     }
 
     const resetData = async (id) => {
@@ -128,8 +129,10 @@
       console.log(submit)
       
       dialog.close();
+      ton.classList.add("isLeeg")
+      gras.classList.add("kleurGras")
+      kraan.classList.add("isOpen")
       getData();
-      ton.classList.add("isLeeg");
     }
 </script>
 
@@ -240,6 +243,8 @@
             .isLeeg {
               transform: scaleY(20%) translateX(0px);
             }
+
+            
       
             .cls-2 {
               stroke: #4ecd5d;
@@ -279,13 +284,20 @@
       
             .cls-6 {
               stroke: #77c4e3;
-              transform: scaleY(100%) translateX(0px);
+              /* transform: scaleY(100%) translateX(0px) rotate(180deg);
               transition: 2s;
-              transform-origin: bottom;
+              transform-origin: bottom; */
+              transition: 1s;
+              opacity: 0;
+            }
+
+            .isOpen {
+              opacity: 1;
             }
       
             .cls-7 {
               clip-path: url(#clippath);
+            }
         </style>
         <clipPath id="clippath">
           <rect class="cls-1" x="5.5" y="4" width="266" height="423" rx="77.35" ry="77.35"/>
@@ -332,8 +344,7 @@
 
 </main>
 
-<style>
-
+<style global>
   main {
     display: flex;
     flex-direction: column;
@@ -453,13 +464,18 @@
       width: 100%;
       height: 6em;
       background-color: #A6DAAC;
-      animation: gras 2s forwards;
+      transition: 1s;
+      /* animation: gras 2s forwards; */
     }
 
-    @keyframes gras {
+    :global(.kleurGras ) {
+      background-color: #70DC7D !important;
+    }
+
+    /* @keyframes gras {
       form {background-color: #A6DAAC;}
       to {background-color: #70DC7D;}
-    } 
+    }  */
 
     .background div:nth-of-type(2) {
       height: 1.5em;
