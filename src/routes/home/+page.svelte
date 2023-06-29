@@ -226,7 +226,7 @@
       
             .cls-9 {
               fill: #384b61;
-              transform: scaleY(50%) translateX(0px);
+              transform: scaleY(var(--inhoudPercentage)) translateX(0px);
               transform-origin: bottom;
               transition: 1s;
               animation-fill-mode: forwards;
