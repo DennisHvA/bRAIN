@@ -433,6 +433,7 @@
 
     .barrel svg {
         width: 55%;
+        max-width: 12.5em;
         transform: translateX(20px);
     }
 
