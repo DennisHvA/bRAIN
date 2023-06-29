@@ -9,11 +9,7 @@
 
     export let data: PageData;
 
-    export let elementHuidigOpgevangenWater = 0
-    export let elementInhoudRegenton = 0
-
     const getData = async () => {
-      console.log("getdata");
       const endpoint = `https://api-eu-central-1-shared-euc1-02.hygraph.com/v2/clilodskp031201uhbhpdaltk/master`
 
       const graphQLClient = new GraphQLClient(endpoint, {
@@ -33,12 +29,9 @@
       `
 
       const gegevens = await graphQLClient.request(query);
-      console.log("Log: " + gegevens)
+      console.log(gegevens)
       updateTon(gegevens.gegevens);
-      elementHuidigOpgevangenWater = gegevens.gegevens[0].huidigOpgevangenWater;
-      elementInhoudRegenton = gegevens.gegevens[0].inhoudRegenton
-      console.log(huidigOpgevangenWater)
-      console.log(inhoudRegenton)
+      return gegevens.gegevens;
     }
     
     let openLeegButton;
@@ -57,8 +50,6 @@
         closeDialog();
         gras = document.querySelector('.gras');
         kraan = document.querySelector('.cls-6');
-        console.log("test")
-        getData();
     });
 
     function updateTon(ton) {
@@ -132,7 +123,6 @@
       ton.classList.add("isLeeg")
       gras.classList.add("kleurGras")
       kraan.classList.add("isOpen")
-      getData();
     }
 </script>
 
@@ -214,7 +204,12 @@
    <section class="barrel">
     <section class="info">
       <h2>Spatwater's Regenton</h2>
-        <p>{elementHuidigOpgevangenWater} / {elementInhoudRegenton}L</p> 
+      {#await getData()}
+        
+      {:then gegevens}
+      <p>{gegevens[0].huidigOpgevangenWater} / {gegevens[0].inhoudRegenton}L</p> 
+        
+      {/await}
     </section>
 
     <svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 345.5 434.5">
@@ -444,7 +439,6 @@
 
     .barrel svg {
         width: 55%;
-        max-width: 12.5em;
         transform: translateX(20px);
     }
 

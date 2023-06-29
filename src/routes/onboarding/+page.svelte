@@ -220,8 +220,9 @@ fieldset {
 }
 
 legend {
+	font-family: var(--font-title);
 	font-size: var(--font-size-2);
-	font-weight: var(--font-weight-semi-bold);
+	font-weight: bold;
 	margin-bottom: 1em;
 }
 
@@ -286,10 +287,6 @@ fieldset .daken {
     gap: 2em;
     flex-wrap: wrap;
     justify-content: space-evenly;
-}
-
-fieldset:last-of-type p {
-	font-size: 1.2em;
 }
 
 fieldset section:last-of-type {
