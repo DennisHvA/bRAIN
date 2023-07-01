@@ -24,35 +24,35 @@
     </section> 
     <section class="notifications">
         <h2>Notificaties</h2>
-        <div class="noti">
+        <article class="noti">
             <figure>
                 <p>!</p>
             </figure>
-            <div class="notification-info">
+            <section class="notification-info">
                 <p>Nu</p>
                 <p>Je regenton is vol!</p>
-            </div>
-       </div>
+            </section>
+        </article>
 
-       <div>
+       <article>
             <figure>
                 <p>!</p>
             </figure>
-            <div class="notification-info">
+            <section class="notification-info">
                 <p>25 juni</p>
                 <p>Je regenton is bijna vol</p>
-            </div>
-       </div>
+            </section>
+        </article>
        
-       <div>
+       <article>
             <figure>
                 <p>!</p>
             </figure>
-            <div class="notification-info">
+            <section class="notification-info">
                 <p>1 juni</p>
                 <p>Je regenton is bijna vol</p>
-            </div>
-        </div> 
+            </section>
+        </article> 
     </section>  
 </header>
 
@@ -103,7 +103,7 @@ header {
     color: var(--color-white);
 }
 
-.notifications > div {
+.notifications > article {
     display: flex;
     gap: 1em;
     align-items: center;
