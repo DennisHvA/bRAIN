@@ -1,38 +1,86 @@
-# create-svelte
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/master/packages/create-svelte).
 
-## Creating a project
+# 💧 bRIAN 💧 
 
-If you're seeing this, you've probably already done this step. Congrats!
+## 📱 Over
 
-```bash
-# create a new project in the current directory
-npm create svelte@latest
+Een prototype waarmee gebruikers de stand van hun regenton kunnen bekijken gemaakt voor mobiel. 
 
-# create a new project in my-app
-npm create svelte@latest my-app
+Features:
+
+- Het opslaan van data in een database
+- Een weergave wanneer het zal gaan regenen
+- De regenton legen
+- Een melding in de app als de regenton vol zit
+- Te downloaden als web app
+- De regenton laten vullen op basis van de api in development (cronejob) 
+
+Wishlist:
+
+- Data koppelen aan e-mailadres
+- Pushmelding sturen als de regenton vol zit
+- Automatisch de regenton laten vullen met de API
+- Berekening voor de inhoud van de regenton uitbreiden
+
+Gemaakt met:
+
+- OpenMeteo
+- Svelte(Kit)
+- Hygraph
+- Vite
+- Vercel
+
+Wil je meer over het prototype weten? Bekijk de [design rationale](https://github.com/DennisHvA/bRAIN/blob/main/DesignRationale.pdf)
+
+## 🔗 Bekijk de applicatie 
+
+De link naar de applicatie: [b-rain.vercel.app](https://b-rain.vercel.app/)
+
+Wil je de applicatie als webapp downloaden? 
+
+Ga naar de link toe
+
+Per webbrowser verschilt het waar de download knop zit
+
+Bij Chrome (de meest populaire browser)
+
+- Mobiel: Instellingen(3 bolletjes) > "App Installeren"
+- Desktop: In navigatiebalk staat een knop en als je hierop met je muis op zit zegt hij "B-rain installeren" 
+
+1. Ga naar de link van de applicatie
+
+## 💻 Installatie
+
+Installeer deze repository: 
+
+```
+git clone https://github.com/DennisHvA/bRAIN
 ```
 
-## Developing
+Installeer de gebruikte packages: 
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+```
+git npm install
 ```
 
-## Building
+Om een development server te starten: 
 
-To create a production version of your app:
-
-```bash
-npm run build
+```
+git run dev
 ```
 
-You can preview the production build with `npm run preview`.
+Bouw de applicatie: 
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+```
+git run build
+```
+
+## 👥 Makers
+
+- [Dennis de Graaf](https://github.com/dennishva)
+- [Nigel Fijnheer](https://github.com/neinno)
+- [Casper den Nijs](https://github.com/casperdennijs)
+
+## ⚖️ Licentie
+
+De [MIT](https://github.com/DennisHvA/bRAIN/blob/main/LICENSE) licentie wordt gebruikt
