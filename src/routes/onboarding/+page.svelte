@@ -1,7 +1,6 @@
 <script lang="ts">
     import Header from '$lib/components/Header.svelte'
 	import { gql, GraphQLClient } from 'graphql-request'
-
 	import { onMount } from 'svelte';
 
 	let currentStep;
@@ -49,7 +48,7 @@
 
 			const query = gql`
 			mutation {
-				createBRAIN_data(data: { userId: 0, aantalRegenpijpen: ${data.pipes}, dakOppervlakte: ${data.size}, inhoudRegenton: ${data.liter}, typeDak: Plat, postcode: "${data.zip}", huisnummer: "${data.huisnummer}", huidigOpgevangenWater: 0, totaalOpgevangenWater: 0 }) {
+				createBRAIN_data(data: { userId: 0, aantalRegenpijpen: ${data.pipes}, dakOppervlakte: ${data.size}, inhoudRegenton: ${data.liter}, typeDak: Plat, postcode: "${data.zip}", huisnummer: "${data.huisnummer}", huidigOpgevangenWater: 100, totaalOpgevangenWater: 0 }) {
 					userId
 					aantalRegenpijpen
 					dakOppervlakte
@@ -306,10 +305,6 @@ main > section {
     flex-direction: row;
     justify-content: center;
     gap: 1em;
-    /* position: absolute;
-    bottom: 7.5em;
-    left: 50%;
-    transform: translateX(-50%); */
 }
 
 main > section div {

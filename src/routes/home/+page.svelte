@@ -5,7 +5,7 @@
     import type { PageData } from './$types';
 
     import { onMount } from 'svelte';
-	import { graphqlSync } from 'graphql';
+	  import { graphqlSync } from 'graphql';
 
     export let data: PageData;
 
@@ -248,9 +248,7 @@
             .isLeeg {
               transform: scaleY(20%) translateX(0px);
             }
-
-            
-      
+    
             .cls-2 {
               stroke: #4ecd5d;
             }
@@ -289,9 +287,6 @@
       
             .cls-6 {
               stroke: #77c4e3;
-              /* transform: scaleY(100%) translateX(0px) rotate(180deg);
-              transition: 2s;
-              transform-origin: bottom; */
               transition: 1s;
               opacity: 0;
             }
@@ -356,180 +351,171 @@
     gap: 1em;
   }
 
-    /* timeline */
+  .timeline {
+      height: 100%;
+      width: 100%;
+      display: flex;
+      background-color: var(--color-blue-light);
+  }
 
-    .timeline {
-        height: 100%;
-        width: 100%;
-        display: flex;
-        /* margin-bottom: 1em; */
-        background-color: var(--color-blue-light);
-    }
+  .timeline p {
+    font-family: var(--font-title);
+    font-weight: var(--font-weight-semi-bold);
+  }
 
-    .timeline p {
+  .timeline section {
+    padding: .5em;
+    width: calc(100% / 7);
+    display: flex;
+    flex-direction: column;
+    gap: .4em;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .timeline section:first-of-type {
+    background-color: var(--color-blue-dark);
+  }
+
+  .timeline section:nth-last-child(2) {
+    background-color: var(--color-green);
+  }
+
+  .timeline img {
+    height: 1em;
+    aspect-ratio: 1/1;
+  }
+
+  .timeline p {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    color: var(--color-white);
+  }
+
+  .timeline p:last-of-type {
+    font-size: .8em;
+  }
+
+  .timeline span {
+    font-size: .7em;
+  }
+
+  /* regenton */
+
+  .landing h2 {
+      color: var(--color-blue-light);
+      font-size: 1.5em;
       font-family: var(--font-title);
-      font-weight: var(--font-weight-semi-bold);
-    }
+  }
 
-    .timeline section {
-      padding: .5em;
-      width: calc(100% / 7);
-      display: flex;
-      flex-direction: column;
-      gap: .4em;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .timeline section:first-of-type {
-      background-color: var(--color-blue-dark);
-    }
-
-    .timeline section:nth-last-child(2) {
-      background-color: var(--color-green);
-    }
-
-    .timeline img {
-      height: 1em;
-      aspect-ratio: 1/1;
-    }
-
-    .timeline p {
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: .3em;
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      color: var(--color-white);
-    }
+      background-color: var(--color-background);
+  }
 
-    .timeline p:last-of-type {
-      font-size: .8em;
-    }
-
-    .timeline span {
-      font-size: .7em;
-    }
-
-    /* regenton */
-
-    .landing h2 {
-        color: var(--color-blue-light);
-        font-size: 1.5em;
-        font-family: var(--font-title);
-    }
-
-    .info {
-      display: flex;
-      flex-direction: column;
-      gap: .3em;
-        text-align: center;
-        background-color: var(--color-background);
-    }
-
-    .info p {
-        color: var(--color-blue-dark);
-        font-weight: var(--font-weight-semi-bold);
-        font-size: 1.25em;
-        font-family: var(--font-title);
-    }
+  .info p {
+      color: var(--color-blue-dark);
+      font-weight: var(--font-weight-semi-bold);
+      font-size: 1.25em;
+      font-family: var(--font-title);
+  }
 
 
-    .leeg {
-        border-radius: 8px;
-        aspect-ratio: 5/1;
-        cursor: pointer;
-        display: block;
-    }
-
-    .barrel {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1em;
-    }
-
-    .barrel svg {
-        width: 55%;
-        max-width: 12.5em;
-        transform: translateX(20px);
-    }
-
-    .background {
-      position: relative;
-      width: 100%;
-    }
-
-    .background div {
-      height: 1em
-    }
-
-    .background div:first-of-type {
-      position: absolute;
-      z-index: -1;
-      top: -4.5em;
-      width: 100%;
-      height: 6em;
-      background-color: #A6DAAC;
-      transition: 1s;
-      /* animation: gras 2s forwards; */
-    }
-
-    :global(.kleurGras ) {
-      background-color: #70DC7D !important;
-    }
-
-    /* @keyframes gras {
-      form {background-color: #A6DAAC;}
-      to {background-color: #70DC7D;}
-    }  */
-
-    .background div:nth-of-type(2) {
-      height: 1.5em;
-      background-color: #BEBEBE;
-    }
-
-    .background div:nth-of-type(3){
-      background-color: #EDEDED;
-    }
-
-    /* popup */
-
-    dialog {
-      position: absolute;
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      background-color: var(--color-grey);
-      padding: 1em;
-      border: 2px solid var(--color-blue-light);
-      border-radius: .5em;
-      max-width: 15em;
-    }
-
-    dialog section {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    dialog button {
+  .leeg {
+      border-radius: 8px;
+      aspect-ratio: 5/1;
       cursor: pointer;
-    }
+      display: block;
+  }
 
-    dialog h3 {
-      margin-bottom: .5em;
-    }
+  .barrel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1em;
+  }
 
-    dialog p {
-      margin-bottom: 1.5em;
-    }
+  .barrel svg {
+      width: 55%;
+      max-width: 12.5em;
+      transform: translateX(20px);
+  }
 
-    dialog .terug {
-      background-color: var(--color-white);
-      border: 1px solid var(--color-green);
-      color: var(--color-green);
-      font-weight: 100;
-    }
+  .background {
+    position: relative;
+    width: 100%;
+  }
 
-    dialog::backdrop {
-      background-color: rgb(0,0,0, .25);
-    }
+  .background div {
+    height: 1em
+  }
+
+  .background div:first-of-type {
+    position: absolute;
+    z-index: -1;
+    top: -4.5em;
+    width: 100%;
+    height: 6em;
+    background-color: #A6DAAC;
+    transition: 1s;
+  }
+
+  :global(.kleurGras ) {
+    background-color: #70DC7D !important;
+  }
+
+  .background div:nth-of-type(2) {
+    height: 1.5em;
+    background-color: #BEBEBE;
+  }
+
+  .background div:nth-of-type(3){
+    background-color: #EDEDED;
+  }
+
+  /* popup */
+
+  dialog {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--color-grey);
+    padding: 1em;
+    border: 2px solid var(--color-blue-light);
+    border-radius: .5em;
+    max-width: 15em;
+  }
+
+  dialog section {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  dialog button {
+    cursor: pointer;
+  }
+
+  dialog h3 {
+    margin-bottom: .5em;
+  }
+
+  dialog p {
+    margin-bottom: 1.5em;
+  }
+
+  dialog .terug {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-green);
+    color: var(--color-green);
+    font-weight: 100;
+  }
+
+  dialog::backdrop {
+    background-color: rgb(0,0,0, .25);
+  }
 </style>
