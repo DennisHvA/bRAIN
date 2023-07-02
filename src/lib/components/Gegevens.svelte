@@ -56,8 +56,8 @@
       </section>
       <section>
         <section>
-          <p>Aantal liter in de regenton</p>
-          <p>{gegevens.inhoudRegenton}</p>
+          <p>Inhoud regenton</p>
+          <p>{gegevens.inhoudRegenton}L</p>
         </section>
         <div></div>
       </section>

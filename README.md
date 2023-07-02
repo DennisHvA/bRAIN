@@ -9,6 +9,7 @@ Een prototype waarmee gebruikers de stand van hun regenton kunnen bekijken gemaa
 Features:
 
 - Het opslaan van data in een database
+- Ophalen van data uit de database
 - Een weergave wanneer het zal gaan regenen
 - De regenton legen
 - Een melding in de app als de regenton vol zit
@@ -21,6 +22,7 @@ Wishlist:
 - Pushmelding sturen als de regenton vol zit
 - Automatisch de regenton laten vullen met de API
 - Berekening voor de inhoud van de regenton uitbreiden
+- Locatie gebruiken voor de API
 
 Gemaakt met:
 
