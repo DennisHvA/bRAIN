@@ -76,6 +76,12 @@ Bouw de applicatie:
 git run build
 ```
 
+Om in development de regenton te vullen met de API:
+
+```
+node cron.js
+```
+
 ## 👥 Makers
 
 - [Dennis de Graaf](https://github.com/dennishva)
