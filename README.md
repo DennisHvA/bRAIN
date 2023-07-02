@@ -50,8 +50,6 @@ Bij Chrome (de meest populaire browser)
 - Mobiel: Instellingen(3 bolletjes) > "App Installeren"
 - Desktop: In navigatiebalk staat een knop en als je hierop met je muis op zit zegt hij "B-rain installeren" 
 
-1. Ga naar de link van de applicatie
-
 ## 💻 Installatie
 
 Installeer deze repository: 
