@@ -22,7 +22,8 @@ Wishlist:
 - Pushmelding sturen als de regenton vol zit
 - Automatisch de regenton laten vullen met de API
 - Berekening voor de inhoud van de regenton uitbreiden
-- Locatie gebruiken voor de API
+- Locatie gebruiken voor de API (longitude en latitude)
+- Overzicht pagina gemeente
 
 Gemaakt met:
 
